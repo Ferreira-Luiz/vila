@@ -1,0 +1,69 @@
+
+<div class="contacts-content">
+  <div class="info-content">
+    <div class="box-1">
+      <span class="email-box">
+        <fa-icon [icon]="['fas', 'envelope']" [class]="['fa-lg']"></fa-icon>
+        infocompany.com
+      </span>
+      <span class="email-box">
+        <fa-icon [icon]="['fas', 'envelope']" [class]="['fa-lg']"></fa-icon>
+        Sunny Isles Beach, FL 33160
+      </span>
+    </div>
+    <div class="box-2">
+      <div class="social-icons">
+        <div class="social-box">
+          <a href="#">
+            <fa-icon [icon]="['fab', 'facebook']" [class]="['fa-sm', 'icon']"></fa-icon>
+          </a>
+        </div>
+        <div class="social-box">
+          <a href="#">
+            <fa-icon [icon]="['fab', 'twitter']" [class]="['fa-sm', 'icon']"></fa-icon>
+          </a>
+        </div>
+        <div class="social-box">
+          <a href="#">
+            <fa-icon [icon]="['fab', 'linkedin']" [class]="['fa-sm', 'icon']"></fa-icon>
+          </a>
+        </div>
+        <div class="social-box">
+          <a href="#">
+            <fa-icon [icon]="['fab', 'instagram']" [class]="['fa-sm', 'icon']"></fa-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<header>
+<button class="btn-icon" (click)="toogleSideBar()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-list"
+  viewBox="0 0 16 16">
+  <path fill-rule="evenodd"
+  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+</svg>
+</button>
+
+<div class="logo-box">
+  <span>VILLA</span>
+</div>
+
+<div class="navigation-box" #navigationHeader>
+  <button class="btn-icon" (click)="closeSideBar()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x"
+    viewBox="0 0 16 16">
+    <path
+    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+  </svg>
+</button>
+<a href="#">Home</a>
+<a href="#">Properties</a>
+<a href="#">Properties Details</a>
+<a href="#">Contact Us</a>
+</div>
+</header>
+
