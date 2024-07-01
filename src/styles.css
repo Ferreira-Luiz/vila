@@ -38,8 +38,11 @@ breakpoint-xxlarge: 1440px;
   --orange: #f35525;
   --black-text: #1e1e1e;
   --pink: #d7bcaa;
+  --strong-pink: #ef626b;
   --gray: #cdcdcd;
+  --strongGray: #aaabac;
   --white: #ffff;
+  --darkWhite: #fafafa;
 }
 
 body {

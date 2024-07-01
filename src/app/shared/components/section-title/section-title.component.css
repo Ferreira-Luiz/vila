@@ -1,0 +1,12 @@
+.session-title {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 700;
+  right: -1rem;
+}
+
+.session-title b {
+  position: absolute;
+  top: -.2rem;
+  left: -1rem;
+}

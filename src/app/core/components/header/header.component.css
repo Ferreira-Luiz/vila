@@ -1,3 +1,8 @@
+.container{
+  margin: 0 auto;
+  max-width: 100%;
+  width: 130rem;
+}
 
 .contacts-content {
   position: relative;
@@ -65,7 +70,6 @@ header, .navigation-box {
 
 header {
   display: flex;
-  position: fixed;
   z-index: 99;
   width: 130rem;
   max-width: 100%;
