@@ -1,21 +1,23 @@
-<app-banner [bannerTitle]="'VIDEO VIEW'" [bannersubtitle]="'Get Closer View & Different Feeling'" />
-<div class="video-box">
-  <iframe src="https://www.youtube.com/embed/DnPxdQNOURM?si=BnS-68gHuMbuHL6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<div class="box-info">
-  <div class="box">
-    <span class="number">34</span>
-    <span class="title">Buildings Finished Now</span>
-    <fa-icon [icon]="['fas', 'hammer']" [class]="['fa-lg', 'icon']"></fa-icon>
+<section>
+  <app-banner [bannerImage]="'../../../../assets/images/video-bg.jpg'" [bannerTitle]="'VIDEO VIEW'" [bannersubtitle]="'Get Closer View & Different Feeling'" />
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/DnPxdQNOURM?si=BnS-68gHuMbuHL6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-  <div class="box">
-    <span class="number">12</span>
-    <span class="title">Years Experience</span>
-    <fa-icon [icon]="['fas', 'calendar-days']" [class]="['fa-lg', 'icon']"></fa-icon>
+  <div class="box-info">
+    <div class="box">
+      <span class="number">34</span>
+      <span class="title">Buildings Finished Now</span>
+      <fa-icon [icon]="['fas', 'hammer']" [class]="['fa-lg', 'icon']"></fa-icon>
+    </div>
+    <div class="box">
+      <span class="number">12</span>
+      <span class="title">Years Experience</span>
+      <fa-icon [icon]="['fas', 'calendar-days']" [class]="['fa-lg', 'icon']"></fa-icon>
+    </div>
+    <div class="box">
+      <span class="number">24</span>
+      <span class="title">Awwards Won 2023</span>
+      <fa-icon [icon]="['fas', 'trophy']" [class]="['fa-lg', 'icon']"></fa-icon>
+    </div>
   </div>
-  <div class="box">
-    <span class="number">24</span>
-    <span class="title">Awwards Won 2023</span>
-    <fa-icon [icon]="['fas', 'trophy']" [class]="['fa-lg', 'icon']"></fa-icon>
-  </div>
-</div>
+</section>

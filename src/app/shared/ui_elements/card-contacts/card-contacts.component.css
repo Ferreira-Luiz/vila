@@ -1,0 +1,35 @@
+.card {
+  display: flex;
+  gap: 3rem;
+  width: 34rem;
+  height: 11rem;
+  max-width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 3rem;
+}
+
+.card img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.card-text .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.card-text .card-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--gray);
+}
+

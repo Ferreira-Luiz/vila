@@ -1,0 +1,23 @@
+.properties-container {
+  padding-top: 10rem;
+  display: flex;
+  width: 130rem;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 40rem;
+  max-width: 100%;
+}
+
+.subTitle {
+  font-size: 3.8rem;
+  font-weight: 900;
+
+}

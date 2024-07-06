@@ -11,5 +11,6 @@ import { SectionTitleComponent } from '../section-title/section-title.component'
 export class BannerComponent {
   @Input() bannerTitle: string = '';
   @Input() bannersubtitle: string = '';
+  @Input() bannerImage: string = '';
 
 }

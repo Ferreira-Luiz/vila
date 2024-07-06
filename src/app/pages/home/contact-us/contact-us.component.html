@@ -1,0 +1,13 @@
+<section>
+  <app-banner  [bannerImage]="'../../../../assets/images/contact-bg.jpg'" [bannerTitle]="'CONTACT US'" [bannersubtitle]="'Get In Touch With Our Agents'"  />
+  <div class="container">
+    <div class="map-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d68685.18663590183!2d-80.118781!3d25.952478!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1720028467355!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="cards">
+        <app-card-contacts [cardImage]="'../../../../assets/icons/phone-icon.png'" [cardTitle]="'010-020-0340'" [cardSubtitle]="'Phone Number'"/>
+        <app-card-contacts [cardImage]="'../../../../assets/icons/email-icon.png'" [cardTitle]="'info@villa.com'" [cardSubtitle]="'Business Email'"/>
+      </div>
+    </div>
+    <app-form/>
+  </div>
+</section>

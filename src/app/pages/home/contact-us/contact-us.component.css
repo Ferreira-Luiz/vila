@@ -1,0 +1,24 @@
+.container {
+  position: relative;
+  top: -20rem;
+  display: flex;
+  width: 130rem;
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.map-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.map-box iframe {
+  width: 100%;
+}
+
+.map-box .cards {
+  display: flex;
+  gap: 3rem;
+}

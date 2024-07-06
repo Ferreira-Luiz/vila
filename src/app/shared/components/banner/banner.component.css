@@ -7,12 +7,16 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-image: url('../../../../assets/images/video-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 58rem;
+}
+
+.banner-box img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
 }
 
 .text-box {
