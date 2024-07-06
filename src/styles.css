@@ -12,15 +12,15 @@ breakpoint-xxlarge: 1440px;
 */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: red;
+  background-color: var(--orange);
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffff;
+  background: var(--black-text);
 }
 
 * {
