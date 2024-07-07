@@ -1,45 +1,59 @@
-<section>
+  <section>
     <div class="container">
       <div class="section-container">
-        <div class="house-container">
-        @for (house of houses$ | async; track house.id) {
-          <div class="house-box">
-            <img [src]="house.image" alt="{{ house.title }}">
-            <div class="house-infos">
-              <div class="info-top">
-                <span class="type">{{ house.type }}</span>
-                <span class="price">{{ house.price | money }}</span>
-              </div>
-              <span class="name">{{ house.title }}</span>
+        @if (showFilter) {
+          <div class="filter">
+            <button (click)="loadProperties()" >Show all</button>
+            <button (click)="byType('Appartment')" >Appartment</button>
+            <button (click)="byType('Villa House')" >Villa house</button>
+            <button (click)="byType('Penthouse')" >Penthouse</button>
+          </div>
+        }
+        @if (isLoading) {
+          <app-skeleton/>
+        }
+        @if (!isLoading) {
+          <div class="house-container">
+            @for (house of houses$ | async; track house.id) {
+              <div class="house-box">
+                <img [src]="house.image" alt="{{ house.title }}">
+                <div class="house-infos">
+                  <div class="info-top">
+                    <span class="type">{{ house.type }}</span>
+                    <span class="price">{{ house.price | money }}</span>
+                  </div>
+                  <span class="name">{{ house.title }}</span>
 
-              <div class="bot-info">
-                <div class="line">
-                  <span>Bedrooms: <b>{{house.bedrooms}}</b></span>
-                  <span>Bathrooms: <b>{{house.bathrooms}}</b></span>
+                  <div class="bot-info">
+                    <div class="line">
+                      <span>Bedrooms: <b>{{house.bedrooms}}</b></span>
+                      <span>Bathrooms: <b>{{house.bathrooms}}</b></span>
+                    </div>
+                    <div class="line">
+                      <span>Area: <b>{{house.area}}m2</b></span>
+                      <span>Floor: <b>{{house.floor}}</b></span>
+                      <span>Parking: <b>{{house.parkingSpots}} spots</b></span>
+                    </div>
+                  </div>
                 </div>
-                <div class="line">
-                  <span>Area: <b>{{house.area}}m2</b></span>
-                  <span>Floor: <b>{{house.floor}}</b></span>
-                  <span>Parking: <b>{{house.parkingSpots}} spots</b></span>
+                <div class="details">
+                  <span class="view-details">
+                    View Details
+                  </span>
                 </div>
               </div>
-            </div>
-            <div class="details">
-              <span class="view-details">
-                View Details
-              </span>
-            </div>
+            }
+          </div>
+        }
+        </div>
+        @if (showPagination) {
+          <div class="pagination">
+            <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+            <span>Page {{ page }} of {{ totalPages }}</span>
+            <button (click)="nextPage()" [disabled]="page === totalPages">Próxima</button>
           </div>
         }
       </div>
-      </div>
-      @if (showPagination) {
-        <div class="pagination">
-          <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
-          <span>Page {{ page }} of {{ totalPages }}</span>
-          <button (click)="nextPage()" [disabled]="page === totalPages">Próxima</button>
-        </div>
-      }
-    </div>
-</section>
+  </section>
+
 

@@ -6,28 +6,29 @@
 }
 
 .house-container {
+  margin: 10rem 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5rem;
   align-items: center;
 }
 
 .house-box {
   position: relative;
   padding: 3rem;
-  width: 42rem;
-  max-width: 100%;
+  width: 40rem;
   height: 60rem;
+  max-width: 100%;
   background-color: var(--darkWhite);
   border-radius: 1rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 5rem;
-
-
 }
 
 .house-box img {
-  width: 36rem;
+  width: 35rem;
+  max-width: 100%;
   height: 26rem;
   border-radius: 1rem;
 }
@@ -132,7 +133,7 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  margin: 2rem 0;
+  margin-bottom: 5rem;
 }
 
 .pagination button {
@@ -145,4 +146,29 @@
   width: 10rem;
   border-radius: 1rem;
 }
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter button {
+  cursor: pointer;
+  border-radius: .5rem;
+  font-size: 1.8rem;
+  color: var(--white);
+  width: 13rem;
+  border: none;
+  background-color: var(--black-text);
+  height: 4.6rem;
+}
+
+.filter button:hover {
+  color: var(--orange);
+}
+
+
 

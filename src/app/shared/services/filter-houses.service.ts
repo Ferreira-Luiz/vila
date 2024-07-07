@@ -14,14 +14,14 @@ export class FilterHousesService {
 
   filterByType(type: string): Observable<PropertiesData[]> {
     let params = new HttpParams().set('type', type);
-    return this.http.get<PropertiesData[]>(this.APIurl, { params });
+    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { params });
   }
 
   filterByPriceRange(minPrice: number, maxPrice: number): Observable<PropertiesData[]> {
     let params = new HttpParams()
       .set('minPrice', minPrice.toString())
       .set('maxPrice', maxPrice.toString());
-    return this.http.get<PropertiesData[]>(this.APIurl, { params });
+    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { params });
   }
 
   getFilteredProperty(): Observable<PropertiesData[]> {
