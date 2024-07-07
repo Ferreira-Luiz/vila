@@ -5,5 +5,8 @@ export const routes: Routes = [
   { path: 'home',
     loadComponent: () => import('./pages/home/home.component').then((c) => c.HomeComponent)
   },
+  { path: 'properties',
+    loadComponent: () => import('./pages/properties/properties.component').then((c) => c.PropertiesComponent)
+  },
   { path: '**', redirectTo: '/houses' }
 ];
