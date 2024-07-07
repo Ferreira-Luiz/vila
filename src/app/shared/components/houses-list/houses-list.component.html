@@ -33,6 +33,13 @@
         }
       </div>
       </div>
+      @if (showPagination) {
+        <div class="pagination">
+          <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+          <span>Page {{ page }} of {{ totalPages }}</span>
+          <button (click)="nextPage()" [disabled]="page === totalPages">Próxima</button>
+        </div>
+      }
     </div>
 </section>
 

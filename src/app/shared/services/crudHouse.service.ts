@@ -1,10 +1,15 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environments';
 import { PropertiesData } from '../models/interfaces/propertiesType';
 import { HouseStateService } from './house-state.service';
+
+interface PaginatedProperties {
+  data: PropertiesData[];
+  total: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +20,19 @@ export class crudHouseService {
 
   constructor(private http: HttpClient, private houseStateService: HouseStateService) {}
 
-  getProperties(page: number, limit: number): Observable<PropertiesData[]> {
+  getProperties(page: number, limit: number): Observable<PaginatedProperties> {
     let params = new HttpParams();
     params = params.append('_page', page.toString());
     params = params.append('_limit', limit.toString());
 
-    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { params }).pipe(
-      tap(houses => this.houseStateService.setHouses(houses)),
-      catchError((error) => this.handleError<PropertiesData[]>(error, []))
+    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { observe: 'response', params }).pipe(
+      map((response: HttpResponse<PropertiesData[]>) => {
+        const total = parseInt(response.headers.get('X-Total-Count') || '0', 10);
+        const data = response.body || [];
+        return { data, total };
+      }),
+      tap(response => this.houseStateService.setHouses(response.data)),
+      catchError((error) => this.handleError<PaginatedProperties>(error, { data: [], total: 0 }))
     );
   }
 

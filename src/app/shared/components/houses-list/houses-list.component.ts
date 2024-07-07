@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PropertiesData } from '../../models/interfaces/propertiesType';
@@ -18,8 +18,10 @@ import { HouseStateService } from './../../services/house-state.service';
 export class HousesListComponent implements OnInit {
   houses$!: Observable<PropertiesData[] | []>;
   hasHouses$!: Observable<boolean>;
+  @Input() showPagination: boolean = false;
   page: number = 1;
   limit: number = 6;
+  totalPages!: number;
 
   constructor(private crudHouseService: crudHouseService, private houseStateService: HouseStateService) {}
 
@@ -28,14 +30,18 @@ export class HousesListComponent implements OnInit {
   }
 
   loadProperties(): void {
-    this.crudHouseService.getProperties(this.page, this.limit).subscribe();
-    this.houses$ = this.houseStateService.houses$;
-    this.hasHouses$ = this.houseStateService.hasHouses$;
+    this.crudHouseService.getProperties(this.page, this.limit).subscribe(houses => {
+      this.totalPages = Math.ceil(houses.total / this.limit);
+    });
+      this.houses$ = this.houseStateService.houses$;
+      this.hasHouses$ = this.houseStateService.hasHouses$;
   }
 
   nextPage(): void {
-    this.page++;
-    this.loadProperties();
+    if (this.page < this.totalPages) {
+      this.page++;
+      this.loadProperties();
+    }
   }
 
   prevPage(): void {

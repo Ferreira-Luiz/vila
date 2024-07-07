@@ -127,3 +127,22 @@
   background-color: var(--black-text);
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin: 2rem 0;
+}
+
+.pagination button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none;
+  background-color: var(--black-text);
+  color: var(--white);
+  height: 4rem;
+  width: 10rem;
+  border-radius: 1rem;
+}
+
