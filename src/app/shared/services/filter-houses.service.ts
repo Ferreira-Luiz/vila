@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { catchError, map, Observable, of } from 'rxjs';
 import { PropertiesData } from '../models/interfaces/propertiesType';
 import { environment } from '../../environments/environments';
 
@@ -12,21 +12,26 @@ export class FilterHousesService {
 
   constructor(private http: HttpClient) { }
 
-  filterByType(type: string): Observable<PropertiesData[]> {
-    let params = new HttpParams().set('type', type);
-    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { params });
-  }
-
-  filterByPriceRange(minPrice: number, maxPrice: number): Observable<PropertiesData[]> {
+  filterByType(type: string, page: number, limit: number): Observable<any> {
     let params = new HttpParams()
-      .set('minPrice', minPrice.toString())
-      .set('maxPrice', maxPrice.toString());
-    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { params });
+      .set('type', type)
+      .set('_page', page.toString())
+      .set('_limit', limit.toString());
+
+    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { observe: 'response', params }).pipe(
+      map((response: HttpResponse<PropertiesData[]>) => {
+        const total = parseInt(response.headers.get('X-Total-Count') || '0', 10);
+        const data = response.body || [];
+        return { data, total };
+      }),
+      catchError((error) => of([error]))
+    );
   }
 
   getFilteredProperty(): Observable<PropertiesData[]> {
     return this.http.get<PropertiesData[]>(`${this.APIurl}properties`).pipe(
-      map(properties => this.filterOneOfEachType(properties))
+      map(properties => this.filterOneOfEachType(properties)),
+      catchError((error) => of([error]))
     );
   }
 

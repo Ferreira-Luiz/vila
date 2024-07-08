@@ -4,9 +4,9 @@
         @if (showFilter) {
           <div class="filter">
             <button (click)="loadProperties()" >Show all</button>
-            <button (click)="byType('Appartment')" >Appartment</button>
-            <button (click)="byType('Villa House')" >Villa house</button>
-            <button (click)="byType('Penthouse')" >Penthouse</button>
+            <button #appartment (click)="byType('Appartment')">Appartment</button>
+            <button #villa (click)="byType('Villa House')" >Villa house</button>
+            <button #penthouse (click)="byType('Penthouse')" >Penthouse</button>
           </div>
         }
         @if (isLoading) {
@@ -14,6 +14,12 @@
         }
         @if (!isLoading) {
           <div class="house-container">
+            @if(!(hasHouses$ | async)) {
+              <div class="error">
+                <span>No Houses Found</span>
+                <button (click)="loadProperties()">Show all</button>
+              </div>
+            }
             @for (house of houses$ | async; track house.id) {
               <div class="house-box">
                 <img [src]="house.image" alt="{{ house.title }}">
@@ -46,12 +52,12 @@
           </div>
         }
         </div>
-        @if (showPagination) {
-          <div class="pagination">
-            <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
-            <span>Page {{ page }} of {{ totalPages }}</span>
-            <button (click)="nextPage()" [disabled]="page === totalPages">Próxima</button>
-          </div>
+        @if (showPagination && totalPages && page) {
+              <div class="pagination">
+              <button (click)="prevPage()" [disabled]="page === 1">prev</button>
+              <span>Page {{ page }} of {{ totalPages }}</span>
+              <button (click)="nextPage()" [disabled]="page === totalPages">next</button>
+            </div>
         }
       </div>
   </section>

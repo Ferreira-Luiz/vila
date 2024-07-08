@@ -12,7 +12,12 @@ export class HouseStateService {
   houses$ = this.housesSubject.asObservable();
   hasHouses$ = this.hasHousesSubject.asObservable();
 
-  setHouses(houses: PropertiesData[]): void {
+
+  setHouses(houses: PropertiesData[] | null | undefined): void {
+    if (!houses) {
+      houses = [];
+      this.hasHousesSubject.next(false);
+    }
     this.housesSubject.next(houses);
     this.hasHousesSubject.next(houses.length > 0);
   }
