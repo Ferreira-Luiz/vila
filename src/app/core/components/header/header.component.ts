@@ -15,7 +15,7 @@ export class HeaderComponent {
   showSideBar: boolean = false;
   isMobile: boolean = false;
   isScrolled = false;
-  scrollLimit = 100;
+  scrollLimit = 130;
   @ViewChild('header') header!:ElementRef;
   @ViewChild('navigationHeader') navigationHeader!:ElementRef;
   @ViewChild('bg') bg!:ElementRef;

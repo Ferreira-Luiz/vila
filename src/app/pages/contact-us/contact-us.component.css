@@ -1,0 +1,46 @@
+
+section {
+  margin-bottom: 5rem;
+}
+
+.container {
+  display: flex;
+  width: 130rem;
+  max-width: 100%;
+  margin: 0 auto;
+  gap: 4rem;
+  padding: 10rem 0;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-box h3 {
+  font-size: 5.5rem;
+  font-weight: 900;
+  width: 48rem;
+  color: var(--black-text);
+}
+.text-box p {
+  font-size: 1.7rem;
+  line-height: 3.3rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.map {
+  width: 130rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.map iframe {
+  width: 100%;
+}
