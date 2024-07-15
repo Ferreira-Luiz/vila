@@ -9,11 +9,12 @@ import { SkeletonComponent } from '../../utils/skeleton/skeleton.component';
 import { unsub } from '../../utils/unsub';
 import { FilterHousesService } from './../../services/filter-houses.service';
 import { HouseStateService } from './../../services/house-state.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-houses-list',
   standalone: true,
-  imports: [moneyPipe, CommonModule, SkeletonComponent],
+  imports: [moneyPipe, CommonModule, SkeletonComponent,RouterModule],
   templateUrl: './houses-list.component.html',
   styleUrl: './houses-list.component.css'
 })

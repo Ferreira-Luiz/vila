@@ -1,13 +1,11 @@
 .container{
-  margin: 0 auto;
+  background-color: var(--white);
   max-width: 100%;
-  width: 130rem;
+  width: 100%;
 }
 
 .contacts-content {
   position: relative;
-  padding-top: 1rem;
-
 }
 
 .contacts-content::after {
@@ -21,6 +19,7 @@
 }
 
 .info-content {
+  padding: 2rem 2rem 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,6 +51,7 @@
   height: 2.5rem;
   border-radius: 50%;
   background-color: var(--gray);
+
 }
 
 .social-box:hover {
@@ -69,12 +69,12 @@ header, .navigation-box {
 
 header {
   display: flex;
-  z-index: 99;
-  width: 130rem;
-  max-width: 100%;
-  top: 6rem;
+  z-index: 10;
+  width: 100%;
   height: 9rem;
   justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+
 }
 
 .background {

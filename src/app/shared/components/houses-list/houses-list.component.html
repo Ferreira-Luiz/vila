@@ -43,9 +43,11 @@
                   </div>
                 </div>
                 <div class="details">
-                  <span class="view-details">
-                    View Details
-                  </span>
+                  <a [routerLink]="['/properties',house.id]">
+                    <span class="view-details">
+                      View Details
+                    </span>
+                  </a>
                 </div>
               </div>
             }

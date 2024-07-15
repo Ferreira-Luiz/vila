@@ -1,0 +1,47 @@
+<section>
+
+  @if (house$ | async; as property) {
+    <div class="container">
+      <div class="top-box">
+        <img [src]="property.image" alt="house image">
+        <div class="details-box">
+          <div class="infos">
+            <div class="line">
+              <span class="title">Total Flat Space</span>
+              <span class="data">{{property.area}} m2</span>
+            </div>
+
+            <div class="line">
+              <span class="title">Floor number</span>
+              <span class="data">{{property.floor}}th</span>
+            </div>
+
+            <div class="line">
+              <span class="title">Number of rooms</span>
+              <span class="data">{{property.bedrooms}}</span>
+            </div>
+
+            <div class="line">
+              <span class="title">Parking Spots</span>
+              <span class="data">{{property.parkingSpots}}</span>
+            </div>
+
+            <div class="line">
+              <span class="title">Payment Process</span>
+              <span class="data">{{property.paymentProcess}}</span>
+            </div>
+          </div>
+          <a href="#">Contact us</a>
+        </div>
+      </div>
+      <div class="more-details">
+        <span class="type">{{property.type}}</span>
+        <span class="title">{{property.title}}</span>
+        <p>{{property.description}}</p>
+      </div>
+    </div>
+  }
+</section>
+<section>
+  <app-best-deal/>
+</section>

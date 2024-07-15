@@ -34,12 +34,7 @@
 }
 
 .active {
-  background: var(--orange);
-}
-
-.bgElement {
-  background-color: var(--black-text);
-
+  background: var(--orange) !important;
 }
 
 .houseType span {
@@ -47,6 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--black-text);
   font-size: 2rem;
   width: 15rem;
   height: 5rem;

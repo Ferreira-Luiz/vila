@@ -8,5 +8,9 @@ export const routes: Routes = [
   { path: 'properties',
     loadComponent: () => import('./pages/properties/properties.component').then((c) => c.PropertiesComponent)
   },
-  { path: '**', redirectTo: '/houses' }
+  {
+    path: 'properties/:id',
+    loadComponent: () =>  import('./pages/properties-details/properties-details.component').then( (c) => c.PropertiesDetailsComponent),
+  },
+  { path: '**', redirectTo: '/home' }
 ];

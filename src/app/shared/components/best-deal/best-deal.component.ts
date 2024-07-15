@@ -5,12 +5,13 @@ import { IconsModule } from '../../../icons/icons.module';
 import { PropertiesData } from '../../models/interfaces/propertiesType';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-best-deal',
   standalone: true,
-  imports: [SectionTitleComponent, IconsModule, CommonModule],
+  imports: [SectionTitleComponent, IconsModule, CommonModule, RouterModule],
   templateUrl: './best-deal.component.html',
   styleUrl: './best-deal.component.css'
 })
@@ -47,11 +48,9 @@ export class BestDealComponent implements OnInit {
         if (elements.hasOwnProperty(E)) {
             const element = elements[E];
             if (E === type) {
-                element.nativeElement.classList.remove('bgElement');
                 element.nativeElement.classList.add('active');
             } else {
                 element.nativeElement.classList.remove('active');
-                element.nativeElement.classList.add('bgElement');
             }
         }
     }
