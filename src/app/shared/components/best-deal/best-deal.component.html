@@ -46,7 +46,7 @@
         <div class="more-information">
           <span class="extra-info">Extra Info About Property</span>
           <span class="description">{{property.description}}</span>
-          <a [routerLink]="['/properties',property.id]">
+          <a (click)="toTop()" [routerLink]="['/properties',property.id]">
             <div class="visit">
               <fa-icon [icon]="['fas', 'calendar-days']" [class]="['fa-lg', 'icon']"></fa-icon>
               <span>View Details</span>

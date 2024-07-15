@@ -4,11 +4,12 @@ import { getParamsID } from '../../shared/utils/getParamsID';
 import { Observable, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BestDealComponent } from '../../shared/components/best-deal/best-deal.component';
+import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 
 @Component({
   selector: 'app-properties-details',
   standalone: true,
-  imports: [CommonModule, BestDealComponent],
+  imports: [CommonModule, BestDealComponent, PageBannerComponent],
   templateUrl: './properties-details.component.html',
   styleUrl: './properties-details.component.css'
 })

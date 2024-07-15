@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { IconsModule } from '../../../icons/icons.module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map } from 'rxjs';
@@ -14,6 +14,8 @@ import { Observable, map } from 'rxjs';
 export class HeaderComponent {
   showSideBar: boolean = false;
   isMobile: boolean = false;
+  isScrolled = false;
+  scrollLimit = 100;
   @ViewChild('header') header!:ElementRef;
   @ViewChild('navigationHeader') navigationHeader!:ElementRef;
   @ViewChild('bg') bg!:ElementRef;
@@ -50,4 +52,10 @@ export class HeaderComponent {
       this.bg.nativeElement.style.display = 'none';
       this.arrow.nativeElement.style.display = 'block';
   }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > this.scrollLimit;
+  }
+
 }
