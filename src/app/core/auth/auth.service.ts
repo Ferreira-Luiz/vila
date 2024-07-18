@@ -20,6 +20,7 @@ export class AuthService {
   logout():void {
     localStorage.removeItem('isLoggedIn');
     this.loggedIn.next(false);
+    this.router.navigate(['/home']);
   }
 
   isLoggedIn(): boolean {
