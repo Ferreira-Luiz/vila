@@ -116,6 +116,7 @@ header, .navigation-box {
 }
 
 .navigation-box a {
+  cursor: pointer;
   color: var(--black-text);
   transition: .2s;
   font-size: 1.6rem;

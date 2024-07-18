@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HousesListComponent } from '../../../shared/components/houses-list/houses-list.component';
 import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
 import { Observable } from 'rxjs';
-import { HouseStateService } from '../../../shared/services/house-state.service';
+import { HouseStateService } from '../../../core/service/house-state.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

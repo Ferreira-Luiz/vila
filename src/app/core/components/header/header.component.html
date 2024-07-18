@@ -63,7 +63,12 @@
 <a href="/house">Home</a>
 <a href="/properties">Properties</a>
 <a href="/contactUs">Contact Us</a>
-<a href="#">Login</a>
+@if (!userLoggedIn) {
+  <a href="/login">Login</a>
+}
+@if (userLoggedIn) {
+  <a (click)="logout()">Logout</a>
+}
 </div>
 </header>
 </div>

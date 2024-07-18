@@ -1,0 +1,149 @@
+section {
+  background-color: #f1f2f4;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 80rem;
+  width: 100%;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.image-box {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-image: url('../../../../assets/images/RectangleForm.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  font-family: "Fredoka", sans-serif;
+}
+
+.form-text h4 {
+  color: var(--black-text);
+  font-size: 3rem;
+}
+
+.form-text span {
+  font-size: 1.8rem;
+  color: #525252;
+}
+
+.form-container button {
+  cursor: pointer;
+  width: 12.4rem;
+  height: 5.2rem;
+  max-width: 100%;
+  border-radius: 1.6rem;
+  background: linear-gradient(to right, #db613c, #f1744e);
+  border: none;
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.form-container button:hover {
+  color: var(--black-text);
+}
+
+
+form  {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+form input {
+  color: var(--black-text);
+  height: 5.2rem;
+  width: 36.4rem;
+  max-width: 100%;
+  border-radius: 1.6rem;
+  background-color: #F0EDFF;
+  border: none;
+}
+
+.user-input-placeholder {
+  background: url('../../../../assets/images/inputPlaceholder.svg') no-repeat;
+  background-size: 2.5rem 2.5rem;
+  background-position: 1.8rem center;
+  padding-left: 5rem;
+}
+
+.password-input-placeholder {
+  background: url('../../../../assets/images/passwordPlace.svg') no-repeat;
+  background-size: 2.5rem 2.5rem;
+  background-position: 1.8rem center;
+  padding-left: 5rem;
+}
+
+.text-with-lines {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.text-with-lines::before,
+.text-with-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 7rem;
+  height: 1px;
+  background-color: var(--gray);
+}
+
+.text-with-lines::before {
+  left: -8rem;
+}
+
+.text-with-lines::after {
+  right: -8rem;
+}
+
+.socialLoginBox {
+  font-family: "Fredoka", sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 36.4rem;
+  height: 5.8rem;
+  max-width: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 1rem;
+}
+
+.socialLoginBox  span {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--black-text);
+}
+
+.socialLoginBox  span b {
+  font-weight: 900;
+}
+

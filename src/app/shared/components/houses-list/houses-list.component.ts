@@ -4,11 +4,11 @@ import { Observable, takeUntil } from 'rxjs';
 
 import { PropertiesData } from '../../models/interfaces/propertiesType';
 import { moneyPipe } from '../../pipes/money.pipe';
-import { crudHouseService } from '../../services/crudHouse.service';
+import { crudHouseService } from '../../../core/service/crudHouse.service';
 import { SkeletonComponent } from '../../utils/skeleton/skeleton.component';
 import { unsub } from '../../utils/unsub';
-import { FilterHousesService } from './../../services/filter-houses.service';
-import { HouseStateService } from './../../services/house-state.service';
+import { FilterHousesService } from '../../../core/service/filter-houses.service';
+import { HouseStateService } from '../../../core/service/house-state.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [moneyPipe, CommonModule, SkeletonComponent,RouterModule],
   templateUrl: './houses-list.component.html',
-  styleUrl: './houses-list.component.css'
+  styleUrl: './houses-list.component.css',
 })
 
 export class HousesListComponent extends unsub implements OnInit {

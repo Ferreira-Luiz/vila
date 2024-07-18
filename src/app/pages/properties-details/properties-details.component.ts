@@ -1,4 +1,4 @@
-import { crudHouseService } from './../../shared/services/crudHouse.service';
+import { crudHouseService } from '../../core/service/crudHouse.service';
 import { Component, OnInit } from '@angular/core';
 import { getParamsID } from '../../shared/utils/getParamsID';
 import { Observable, switchMap } from 'rxjs';

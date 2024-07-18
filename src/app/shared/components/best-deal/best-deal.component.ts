@@ -1,4 +1,4 @@
-import { FilterHousesService } from './../../services/filter-houses.service';
+import { FilterHousesService } from '../../../core/service/filter-houses.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SectionTitleComponent } from '../section-title/section-title.component';
 import { IconsModule } from '../../../icons/icons.module';
