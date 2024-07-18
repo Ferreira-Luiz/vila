@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
-import { PropertiesData } from '../models/interfaces/propertiesType';
+import { PropertiesData } from '../../shared/models/interfaces/propertiesType';
 import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FilterHousesService {
   private readonly APIurl = `${environment.API}`;
 

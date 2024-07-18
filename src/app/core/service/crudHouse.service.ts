@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environments';
-import { PropertiesData } from '../models/interfaces/propertiesType';
+import { PropertiesData } from '../../shared/models/interfaces/propertiesType';
 import { HouseStateService } from './house-state.service';
 
 interface PaginatedProperties {
