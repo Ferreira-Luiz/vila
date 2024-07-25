@@ -1,15 +1,17 @@
 import { AuthService } from '../../auth/auth.service';
-import { Component, ElementRef, ViewChild, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener, OnInit, viewChild } from '@angular/core';
 import { IconsModule } from '../../../icons/icons.module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map, takeUntil } from 'rxjs';
 import { unsub } from '../../../shared/utils/unsub';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IconsModule],
+  imports: [IconsModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -22,14 +24,24 @@ export class HeaderComponent extends unsub implements OnInit {
   @ViewChild('navigationHeader') navigationHeader!:ElementRef;
   @ViewChild('bg') bg!:ElementRef;
   @ViewChild('arrow') arrow!:ElementRef;
+  showUserData: boolean = false;
+  checkUserStatus: boolean = false;
+  closeBG: boolean = false;
   userLoggedIn: boolean = false;
+  displayName: string | null = null;
+  photoURL: string | null = null;
+  email: string | null = null;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
     map(result => result.matches)
   );
 
-  constructor( private breakpointObserver: BreakpointObserver, private authService: AuthService) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService,
+    private router: Router
+  ) {
     super();
   }
 
@@ -40,13 +52,16 @@ export class HeaderComponent extends unsub implements OnInit {
       this.isMobile = !result.matches;
       if(this.isMobile == false) {
         this.bg.nativeElement.style.display = 'none';
-        this.arrow.nativeElement.style.display = 'none';
       }
     });
     this.authService.isLoggedIn$
     .pipe(takeUntil(this.unsub$))
     .subscribe(loggedIn => {
       this.userLoggedIn = loggedIn;
+      if( this.userLoggedIn) {
+        this.loadUserProfile()
+      }
+      this.checkUserStatus = true;
     });
   }
 
@@ -69,10 +84,30 @@ export class HeaderComponent extends unsub implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > this.scrollLimit;
+    this.showUserData = false;
+    this.closeBG = false;
   }
 
   logout() {
     this.authService.logout();
+    this.closeBG = false;
+    this.router.navigate(['/home']);
   }
 
+  loadUserProfile() {
+      this.authService.getCurrentUserProfile()
+      .pipe(takeUntil(this.unsub$))
+      .subscribe(profile => {
+        if (profile) {
+          this.email = profile.email;
+          this.displayName = profile.displayName;
+          this.photoURL = profile.photoURL;
+        }
+      });
+  }
+
+  toggleUserData() {
+    this.showUserData = !this.showUserData;
+    this.closeBG = !this.closeBG;
+  }
 }

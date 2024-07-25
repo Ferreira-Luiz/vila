@@ -6,6 +6,7 @@
 
 .contacts-content {
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .contacts-content::after {
@@ -81,7 +82,7 @@ header, .navigation-box {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 41;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,9 +100,10 @@ header, .navigation-box {
 }
 
 .navigation-box {
+  position: relative;
   font-size: 2rem;
   gap: 2rem;
-  margin: 0 2rem;
+  margin: 0 4rem;
 }
 
 .logo-box {
@@ -144,6 +146,89 @@ header, .navigation-box {
   display: none;
 }
 
+.userImg {
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--black-text);
+  top: .2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userBox {
+  z-index: 20;
+  right: 3.8rem;
+  top: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 1rem;
+  color: var(--black-text);
+  background-color: var(--darkWhite);
+  border-radius: .5rem;
+  border: 1px solid var(--gray);
+  letter-spacing: 1px;
+  max-width: 100%;
+  overflow: hidden;
+  width: 25rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.userBox .name {
+  font-weight: 700;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.userBox .email {
+  font-size: 1.2rem;
+  color: var(--strongGray);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.userBox .email::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray);
+  margin-top: 1rem;
+}
+
+.item-padd {
+  padding: 0 1rem;
+}
+
+.userBox .logout {
+  cursor: pointer;
+  margin: .5rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: .5rem 1rem;
+  border-radius: .2rem;
+}
+
+.userBox .logout:hover {
+  color: var(--black-text);
+  font-weight: 900;
+  background-color: var(--gray);
+}
+
+
+.close {
+  position: fixed;
+  cursor: pointer;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: var(--black-text);
+  opacity: 0.6;
+  width: 100vw;
+  height: 100%;
+  z-index: 10;
+}
 
 .animate-sidebar {
   animation-name: showSideBar;
@@ -188,5 +273,23 @@ header, .navigation-box {
     padding: 1.6rem;
     margin-left: -100vw;
   }
+
+  .userBox {
+    margin-left: 1rem;
+    position: relative;
+    right: -2rem;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--black-text);
+    background-color: var(--darkWhite);
+    border-radius: .5rem;
+    border: 1px solid var(--gray);
+    letter-spacing: 1px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
 }
 

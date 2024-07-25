@@ -3,10 +3,10 @@
       <div class="section-container">
         @if (showFilter) {
           <div class="filter">
-            <button (click)="loadProperties()" >Show all</button>
+            <button (click)="loadProperties()">Show all</button>
             <button #appartment (click)="byType('Appartment')">Appartment</button>
-            <button #villa (click)="byType('Villa House')" >Villa house</button>
-            <button #penthouse (click)="byType('Penthouse')" >Penthouse</button>
+            <button #villa (click)="byType('Villa House')">Villa house</button>
+            <button #penthouse (click)="byType('Penthouse')">Penthouse</button>
           </div>
         }
         @if (isLoading) {
@@ -14,10 +14,10 @@
         }
         @if (!isLoading) {
           <div class="house-container">
-            @if(!(hasHouses$ | async)) {
+            @if(!hasHouses) {
               <div class="error">
                 <span>No Houses Found</span>
-                <button (click)="loadProperties()">Show all</button>
+                <button>Show all</button>
               </div>
             }
             @for (house of houses$ | async; track house.id) {
@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div class="details">
-                  <a [routerLink]="['/properties',house.id]">
+                  <a [routerLink]="['/properties', house.id]">
                     <span class="view-details">
                       View Details
                     </span>
@@ -54,12 +54,12 @@
           </div>
         }
         </div>
-        @if (showPagination && totalPages && page) {
-              <div class="pagination">
-              <button (click)="prevPage()" [disabled]="page === 1">prev</button>
-              <span>Page {{ page }} of {{ totalPages }}</span>
-              <button (click)="nextPage()" [disabled]="page === totalPages">next</button>
-            </div>
+        @if (showPagination) {
+          <div class="pagination">
+          <button (click)="onPreviousPage()" [disabled]="page === 1">Previous</button>
+            <span>Page {{page}} of {{totalPages}}</span>
+          <button (click)="onNextPage()" [disabled]="page === totalPages">Next</button>
+        </div>
         }
       </div>
   </section>

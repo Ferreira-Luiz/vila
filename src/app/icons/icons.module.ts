@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faHammer, faCalendarDays, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faHammer, faCalendarDays, faTrophy, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -15,7 +15,8 @@ export class IconsModule {
       faEnvelope, faFacebook,
       faTwitter, faLinkedin,
       faInstagram, faHammer,
-      faCalendarDays, faTrophy
+      faCalendarDays, faTrophy,
+      faTrash, faPen
     );
   }
  }

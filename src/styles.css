@@ -16,7 +16,7 @@ breakpoint-xxlarge: 1440px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--orange);
+  background-color: var(--pink);
 }
 
 ::-webkit-scrollbar-track {

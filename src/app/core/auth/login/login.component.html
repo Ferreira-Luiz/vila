@@ -5,9 +5,22 @@
           <h4>LOGIN</h4>
           <span>How to i get started lorem ipsum dolor at?</span>
         </div>
-            <form [formGroup]="form" (ngSubmit)="login()">
-              <input class="user-input-placeholder" type="text" formControlName="email">
-              <input  class="password-input-placeholder " type="password" formControlName="password" placeholder="senha">
+        <form [formGroup]="form" (ngSubmit)="onLogin()">
+          @if(this.hasError && this.form.controls.email.invalid) {
+            <span class="error">This field is required</span>
+          }
+          <span (click)="testeAcc()" id="devMSG">use uma conta de teste. CLIQUE AQUI !!</span>
+              <input class="user-input-placeholder" type="text" formControlName="email" placeholder="Email">
+              @if(this.hasError && this.form.controls.password.invalid) {
+                <span class="error">The password is incorrect</span>
+              }
+              <div class="password-container">
+                <input [type]="passwordFieldType" class="password-input-placeholder" id="confirmPassword" formControlName="password" type="password" placeholder="Password">
+                <button type="button" (click)="togglePasswordVisibility()">
+                  <img [src]="passwordFieldType === 'password' ? closedEyes : openEyes" alt="Toggle confirm password visibility"/>
+                </button>
+              </div>
+
               <button class="btn" type="submit">Login Now</button>
             </form>
           <span class="text-with-lines"><b>Login</b> with Others</span>
@@ -18,6 +31,12 @@
           <div class="socialLoginBox">
             <img src="../../../../assets/icons/facebook.svg" alt="">
             <span>Login with <b>facebook</b></span>
+          </div>
+          <span class="text-with-lines"><b>Register</b> Now</span>
+          <div class="socialLoginBox">
+            <a href="/register">
+              <span><b>Create</b> your account</span>
+            </a>
           </div>
       </div>
       <div class="image-box">

@@ -1,0 +1,213 @@
+<section>
+  <div class="container">
+    <div class="userPage-text">
+      <div class="benefits-title">
+        <h2>Advertise your house on our website.</h2>
+        <span>Are you looking to sell or rent out your house? Advertise your property on our website and enjoy a multitude of benefits:</span>
+      </div>
+      <div class="benefits">
+        <div class="box">
+          <span class="number-circle">1</span>
+          <span class="title"><b>Wide Reach:</b> Our platform attracts a large audience of potential buyers and renters, giving your property maximum exposure.</span>
+        </div>
+        <div class="box">
+          <span class="number-circle">2</span>
+          <span class="title"><b>User-Friendly:</b> Easily create and manage your listing with our intuitive tools. Upload photos, add descriptions, and update details with just a few clicks.</span>
+        </div>
+        @if (showMore) {
+          <div class="box">
+            <span class="number-circle">3</span>
+            <span class="title"><b>Targeted Advertising:</b> Reach the right audience with our targeted advertising options. Ensure your property is seen by those actively looking for a home like yours.</span>
+          </div>
+          <div class="box">
+            <span class="number-circle">4</span>
+            <span class="title"><b>Enhanced Visibility:</b> Featured listings and promotional options increase the visibility of your property, helping it stand out from the competition.</span>
+          </div>
+          <div class="box">
+            <span class="number-circle">5</span>
+            <span class="title"><b>24/7 Availability:</b> Your listing is accessible online 24/7, allowing potential buyers or renters to view your property at their convenience.</span>
+          </div>
+        }
+        @if (!showMore) {
+          <div class="blurdiv"></div>
+        }
+        <div class="btn-container">
+          <button (click)="showMore = !showMore">{{ showMore ? 'Show Less' : 'Show More'}}</button>
+        </div>
+        </div>
+      </div>
+
+      <div class="first-steps">
+        <h3>First Steps</h3>
+        <span>Please fill out the form below to add your house :)</span>
+      </div>
+
+      <div class="form-container">
+        <form [formGroup]="houseForm">
+          <div class="details">
+              <span class="step">Basic details</span>
+            <div class="form-box">
+              <label for="propertyTitle">Title</label>
+              @if (this.houseForm.controls.title.invalid && hasError) {
+                <span class="error">this field is required</span>
+              }
+              <input type="text" id="propertyTitle" name="propertyTitle" formControlName="title" placeholder="How will users find your House?">
+            </div>
+            <div class="form-box">
+              <label for="propertyPrice">Price</label>
+              @if (this.houseForm.controls.price.invalid && hasError) {
+                <span class="error">Invalid price</span>
+              }
+              <input type="number" id="propertyPrice" name="propertyPrice" formControlName="price">
+            </div>
+
+            <div class="form-box">
+              <label for="propertyRooms">Rooms</label>
+              @if (this.houseForm.controls.rooms.invalid && hasError) {
+                <span class="error">Invalid. max 10</span>
+              }
+              <input type="number" id="propertyRooms" name="propertyRooms" formControlName="rooms">
+            </div>
+            <div class="form-box">
+              <label for="propertyDescription">Description</label>
+              <textarea id="propertyDescription" name="propertyDescription" formControlName="description" placeholder="Tell us more about your property. For example: what is nearby, and what is the neighborhood like?"></textarea>
+            </div>
+
+          </div>
+
+          <div class="details">
+            <span class="step">More details</span>
+
+            <div class="form-box">
+              <label for="type">Type</label>
+              @if (this.houseForm.controls.type.invalid && hasError) {
+                <span class="error">this field is required</span>
+              }
+              <select id="type" formControlName="type">
+                <option value="" disabled>Select Type</option>
+                <option value="Penthouse">Penthouse</option>
+                <option value="Villa House">Villa House</option>
+                <option value="Appartment">Appartment</option>
+              </select>
+            </div>
+
+            <div class="form-box">
+              <label for="paymentProcess">Payment Proces</label>
+              @if (this.houseForm.controls.paymentProcess.invalid && hasError) {
+                <span class="error">this field is required</span>
+              }
+              <select id="paymentProcess" formControlName="paymentProcess">
+                <option value="" disabled>Select Payment</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Money">Money</option>
+                <option value="Bank">Bank</option>
+              </select>
+            </div>
+
+            <div class="form-box">
+              <label for="propertyBedrooms">Bedrooms</label>
+              @if (this.houseForm.controls.bedrooms.invalid && hasError) {
+                <span class="error">Invalid. max 20</span>
+              }
+              <input type="number" id="propertyBedrooms" name="propertyBedrooms" formControlName="bedrooms">
+            </div>
+
+            <div class="form-box">
+              <label for="propertyBathrooms">Bathrooms</label>
+              @if (this.houseForm.controls.bathrooms.invalid && hasError) {
+                <span class="error">Invalid. max 20</span>
+              }
+              <input type="number" id="propertyBathrooms" name="propertyBathrooms" formControlName="bathrooms">
+            </div>
+          </div>
+
+          <div class="details">
+            <span class="step">Final step</span>
+            <div class="form-box">
+              <label for="propertyArea">Area</label>
+              @if (this.houseForm.controls.area.invalid && hasError) {
+                <span class="error">Invalid. min 50m2</span>
+              }
+              <input type="number" id="propertyArea" name="propertyArea" formControlName="area">
+            </div>
+            <div class="form-box">
+              <label for="propertyParkingSpots">Parking Spots</label>
+              @if (this.houseForm.controls.parkingSpots.invalid && hasError) {
+                <span class="error">Invalid. max 20</span>
+              }
+              <input type="number" id="propertyParkingSpots" name="propertyParkingSpots" formControlName="parkingSpots">
+            </div>
+            <div class="form-box">
+              <label for="propertyFloor">Floor</label>
+              @if (this.houseForm.controls.floor.invalid && hasError) {
+                <span class="error">Invalid. max 10</span>
+              }
+              <input type="number" id="propertyFloor" name="propertyFloor" formControlName="floor">
+            </div>
+            <div class="form-box">
+              <label for="propertyFloor">Image URL</label>
+              @if (this.houseForm.controls.image.invalid && hasError) {
+                <span class="error">Image must end with an image extension</span>
+              }
+              <input type="text" id="propertyImage" name="propertyImage" formControlName="image" placeholder="URL must end with an image extension (jpeg, png, etc)">
+            </div>
+          </div>
+
+
+        </form>
+        <div class="button-box">
+          @if (!editMode) {
+            <button (click)="addProperty()" type="submit">Add Property</button>
+          }
+          @if (editMode) {
+            <button (click)="updateProperty()" type="submit">Update Infos</button>
+          }
+        </div>
+      </div>
+
+      <span class="expandHouses" (click)="toogleShowHouses()">{{ showHouses ? 'Hide my properties' : 'Show my properties'}}</span>
+      @if (showHouses && this.houses.length > 0) {
+          <div class="userHouse">
+            <ul>
+              @for (property of houses; track property.id) {
+                <li>
+            <div class="house">
+              <img [src]="property.image" alt="house image">
+              <div class="detailsOfHouse">
+                <span class="title">{{ property.title }}</span>
+                <span class="item"><b>Price:</b>{{ property.price | money  }}</span>
+                <span class="item"><b>Rooms:</b>{{ property.rooms }}</span>
+                <span class="item"><b>Bedrooms:</b>{{ property.bedrooms }}</span>
+                <span class="item"><b>Bathrooms:</b>{{ property.bathrooms }}</span>
+              </div>
+
+              <div class="detailsOfHouse">
+                <span class="item"><b>Type:</b>{{ property.type }}</span>
+                <span class="item"><b>floor:</b>{{ property.floor }}</span>
+                <span class="item"><b>Area:</b>{{ property.area }}m2</span>
+                <span class="item"><b>Parking Spots:</b>{{ property.parkingSpots }}</span>
+                <span class="item"><b>Payment Method:</b>{{ property.paymentProcess }}</span>
+              </div>
+
+              <div class="buttons-section">
+                <div class="btn-icon" (click)="editProperty(property)">
+                  <fa-icon [icon]="['fas', 'pen']" [class]="['fa-lg', 'icon', 'edit']"></fa-icon>
+                  <span class="btn-e">Edit</span>
+                </div>
+
+                <div class="btn-icon" (click)="deleteProperty(property.id)">
+                  <fa-icon [icon]="['fas', 'trash']" [class]="['fa-lg', 'icon', 'delete']"></fa-icon>
+                  <span class="btn-d">Delete</span>
+                </div>
+              </div>
+
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+
+</div>
+</section>

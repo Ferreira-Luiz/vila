@@ -1,8 +1,9 @@
-import { crudHouseService } from '../../core/service/crudHouse.service';
-import { Component, OnInit } from '@angular/core';
-import { getParamsID } from '../../shared/utils/getParamsID';
-import { Observable, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { CrudHouseService } from '../../core/service/crudHouse.service';
 import { BestDealComponent } from '../../shared/components/best-deal/best-deal.component';
 import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 
@@ -11,14 +12,18 @@ import { PageBannerComponent } from '../../shared/components/page-banner/page-ba
   standalone: true,
   imports: [CommonModule, BestDealComponent, PageBannerComponent],
   templateUrl: './properties-details.component.html',
-  styleUrl: './properties-details.component.css'
+  styleUrls: ['./properties-details.component.css']
 })
-export class PropertiesDetailsComponent{
+export class PropertiesDetailsComponent implements OnInit {
+  house$!: Observable<any>;
+  private route = inject(ActivatedRoute);
 
-  constructor(private crudHouseService : crudHouseService) {}
+  constructor( private crudHouseService: CrudHouseService ) {}
 
-  house$ = getParamsID().pipe(
-    switchMap((id) => this.crudHouseService.getPropertyById(id))
-  );
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id')!;
+    this.house$ = this.crudHouseService.getPropertyById(id);
+  }
+
 
 }

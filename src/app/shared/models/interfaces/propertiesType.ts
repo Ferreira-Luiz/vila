@@ -1,5 +1,6 @@
 export interface PropertiesData {
-  id: number;
+  id: string;
+  userId: string;
   title: string;
   floor: number;
   rooms: number;

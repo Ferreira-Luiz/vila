@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuardGuard } from './core/auth/guards/auth-guard.guard';
+import { authGuardGuard } from './core/auth/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -7,7 +7,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component').then((c) => c.HomeComponent)
   },
   { path: 'properties',
-    loadComponent: () => import('./pages/properties/properties.component').then((c) => c.PropertiesComponent)
+    loadComponent: () => import('./pages/listHousePage/listHousePage.component').then((c) => c.listHousePagecomponent)
   },
   {
     path: 'properties/:id',
@@ -19,8 +19,12 @@ export const routes: Routes = [
   { path: 'login',
     loadComponent: () => import('./core/auth/login/login.component').then((c) => c.LoginComponent),
   },
-  { path: 'newHome',
-    loadComponent: () => import('./pages/add-new-home/add-new-home.component').then((c) => c.AddNewHomeComponent),
+  {
+    path: 'register',
+    loadComponent: () => import('./core/auth/register/register.component').then((c) => c.RegisterComponent)
+  },
+  { path: 'userPage',
+    loadComponent: () => import('./pages/userPage/userPage.component').then((c) => c.userPage),
     canActivate: [authGuardGuard],
   },
   { path: '**', redirectTo: '/home' }

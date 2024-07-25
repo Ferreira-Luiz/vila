@@ -1,5 +1,5 @@
+<app-page-banner [title]="'PROPERTY DETAILS'" [subTitle]="'HOME / PROPERTY DETAILS'" />
 <section>
-  <app-page-banner [title]="'PROPERTY DETAILS'" [subTitle]="'HOME / PROPERTY DETAILS'" />
   @if (house$ | async; as property) {
     <div class="container">
       <div class="top-box">
@@ -25,23 +25,19 @@
               <span class="title">Parking Spots</span>
               <span class="data">{{property.parkingSpots}}</span>
             </div>
-
             <div class="line">
               <span class="title">Payment Process</span>
               <span class="data">{{property.paymentProcess}}</span>
             </div>
           </div>
-          <a href="#">Contact us</a>
         </div>
       </div>
       <div class="more-details">
         <span class="type">{{property.type}}</span>
         <span class="title">{{property.title}}</span>
-        <p>{{property.description}}</p>
+        <p>{{property?.description}}</p>
       </div>
     </div>
+    <a class="contact-btn" href="/contactUs">Contact us</a>
   }
-</section>
-<section>
-  <app-best-deal/>
 </section>

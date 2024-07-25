@@ -1,6 +1,10 @@
-import { NonNullableFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
+
+import { unsub } from '../../../shared/utils/unsub';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +13,47 @@ import { Component, inject } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
-  private formBuilderService = inject(NonNullableFormBuilder);
 
- constructor(private authService: AuthService) { }
+export class LoginComponent extends unsub {
+  private formBuilderService = inject(FormBuilder);
+  isLoading: boolean = false;
+  hasError: boolean = false;
+  passwordFieldType: string = 'password';
+  openEyes = '../../../../assets/icons/visible.png'
+  closedEyes = '../../../../assets/icons/eye.png'
+
+ constructor(private authService: AuthService, private router: Router) {
+  super();
+ }
 
   protected form = this.formBuilderService.group({
-    email: [{value: 'User@email.com', disabled: true},[Validators.required, Validators.email]],
-    password: [{value: 'teste123', disabled: true}, Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]]
   })
 
-  login() {
-    this.authService.login();
+  onLogin() {
+      const email = this.form.value.email;
+      const password = this.form.value.password;
+
+      if (email && password) {
+        this.authService.login(email, password)
+        .pipe(takeUntil(this.unsub$))
+        .subscribe(() => {
+          if (this.form.invalid) {
+            this.hasError = true;
+          } else {
+            this.router.navigate(['/userPage']);
+          }
+        });
+      }
   }
 
+  togglePasswordVisibility() {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
 
+  testeAcc() {
+    this.form.controls.email.patchValue('tt@email.com');
+    this.form.controls.password.patchValue('senha123');
+  }
 }

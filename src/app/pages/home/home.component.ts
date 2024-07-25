@@ -11,9 +11,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   selector: 'app-home',
   standalone: true,
   imports: [
-  TopSectionComponent, FeaturedComponent,
-  VideoViewComponent, BestDealComponent,
-  PropertiesComponent, ContactUsComponent
+    TopSectionComponent, FeaturedComponent,
+    VideoViewComponent, BestDealComponent,
+    PropertiesComponent, ContactUsComponent,
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

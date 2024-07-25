@@ -3,12 +3,12 @@ import { PageBannerComponent } from '../../shared/components/page-banner/page-ba
 import { HousesListComponent } from '../../shared/components/houses-list/houses-list.component';
 
 @Component({
-  selector: 'app-properties',
+  selector: 'app-listHousePagecomponent',
   standalone: true,
   imports: [PageBannerComponent, HousesListComponent],
-  templateUrl: './properties.component.html',
-  styleUrl: './properties.component.css'
+  templateUrl: './listHousePage.component.html',
+  styleUrl: './listHousePage.component.css'
 })
-export class PropertiesComponent {
+export class listHousePagecomponent  {
 
 }

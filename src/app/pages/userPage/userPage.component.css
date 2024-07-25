@@ -1,0 +1,283 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 10rem 0;
+  width: 130rem;
+  max-width: 100%;
+  margin: 0 auto;
+  color: var(--black-text);
+
+}
+
+.userPage-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.benefits-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefits-title h2 {
+  font-size: 5.5rem;
+  width: 50%;
+}
+
+.benefits-title span {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.benefits {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.number-circle {
+  border: 2px solid var(--black-text);
+  border-radius: .5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+
+.blurdiv {
+  bottom: 5rem;
+  position: absolute;
+  width: 100%;
+  height: 6rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+
+.btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border-radius: .5rem;
+  z-index: 3;
+  border: none;
+  width: 12rem;
+  color: var(--white);
+  height: 4rem;
+  background-color: var(--orange);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.first-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.first-steps h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 3rem;
+}
+
+.first-steps span {
+  font-weight: 600;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-container .step {
+  font-family: "Fredoka", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem
+}
+
+.form-box input {
+  height: 4rem;
+  padding: 0 2rem;
+  width: 33rem;
+  max-width: 100%;
+  border: 1px solid var(--black-text);
+  border-radius: .5rem;
+  resize: none;
+}
+
+.form-box textarea {
+  font-family: "Open Sans", sans-serif;
+  height: 10rem;
+  padding: 1.5rem 0 0 2rem;
+  width: 33rem;
+  max-width: 100%;
+  border: 1px solid var(--black-text);
+  border-radius: .5rem;
+  resize: none;
+}
+
+.form-box label {
+  font-weight: 700;
+}
+
+form .details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-box select {
+  cursor: pointer;
+  width: 33rem;
+  height: 4rem;
+  border: 1px solid var(--black-text);
+  border-radius: .5rem;
+  max-width: 100%;
+  padding: 0 2rem;
+}
+
+.form-box select option {
+  font-size: 1.8rem;
+}
+
+.button-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userHouse {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+}
+
+.userHouse ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.house {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 4rem;
+  background-color: var(--darkWhite);
+  border-radius: 1.6rem;
+  color: var(--black-text);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.house img {
+  border: 2px solid var(--black-text);
+  border-radius: 1.6rem;
+  width: 30rem;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.detailsOfHouse {
+  width: 30rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  justify-content: center;
+  margin-left: 2rem;
+}
+
+.detailsOfHouse::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2rem;
+  width: 2px;
+  height: 100%;
+  background-color: var(--gray);
+}
+
+.detailsOfHouse .title {
+  font-weight: 800;
+  width: 30rem;
+  overflow: hidden;
+}
+
+.detailsOfHouse .item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.buttons-section {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2rem;
+}
+
+.btn-icon {
+  width: 12rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.delete, .btn-d  {
+  color: red;
+
+}
+
+.edit, .btn-e  {
+  color: #5353ec;
+}
+
+
+.expandHouses {
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black-text);
+  opacity: 0.4;
+}
+
+.error {
+  font-size: 1.3rem;
+  color: red;
+}

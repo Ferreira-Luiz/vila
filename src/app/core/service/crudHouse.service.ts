@@ -1,67 +1,67 @@
-import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from '../../environments/environments';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, catchError, from, map, of, switchMap } from 'rxjs';
 import { PropertiesData } from '../../shared/models/interfaces/propertiesType';
-import { HouseStateService } from './house-state.service';
-
-interface PaginatedProperties {
-  data: PropertiesData[];
-  total: number;
-}
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
+export class CrudHouseService {
 
-export class crudHouseService {
-  private readonly APIurl = `${environment.API}`;
+  constructor(private firestore: AngularFirestore, private authService : AuthService) {}
 
-  constructor(private http: HttpClient, private houseStateService: HouseStateService) {}
+  getAllProperties(): Observable<PropertiesData[]> {
+    return this.firestore.collection<PropertiesData>('houses').valueChanges();
+  }
 
-  getProperties(page: number, limit: number): Observable<PaginatedProperties> {
-    let params = new HttpParams();
-    params = params.append('_page', page.toString());
-    params = params.append('_limit', limit.toString());
-
-    return this.http.get<PropertiesData[]>(`${this.APIurl}properties`, { observe: 'response', params }).pipe(
-      map((response: HttpResponse<PropertiesData[]>) => {
-        const total = parseInt(response.headers.get('X-Total-Count') || '0', 10);
-        const data = response.body || [];
-        return { data, total };
-      }),
-      tap(response => this.houseStateService.setHouses(response.data)),
-      catchError((error) => this.handleError<PaginatedProperties>(error, { data: [], total: 0 }))
+  getPropertyById(id: string): Observable<PropertiesData | undefined> {
+    return this.firestore.collection<PropertiesData>('houses').doc(id).valueChanges().pipe(
+      map(doc => doc as PropertiesData | undefined),
+      catchError(() => of(undefined))
     );
   }
 
-  getPropertyById(id: string): Observable<PropertiesData> {
-    return this.http.get<PropertiesData>(`${this.APIurl}properties/${id}`).pipe(
-      catchError((error) => this.handleError<PropertiesData>(error))
+  addHouse(house: PropertiesData): Observable<void> {
+    return this.authService.getCurrentUser().pipe(
+      switchMap(user => {
+        if (user) {
+          house.userId = user.uid;
+          const houseId = this.firestore.createId();
+          house.id = houseId;
+          return from(this.firestore.collection('houses').doc(houseId).set(house)).pipe(
+            map(() => void 0),
+            catchError((error) => {
+              throw error;
+            })
+          );
+        } else {
+          throw new Error('User not authenticated');
+        }
+      })
     );
   }
 
-  createProperties(properties: PropertiesData): Observable<PropertiesData> {
-    return this.http.post<PropertiesData>(`${this.APIurl}properties`, properties).pipe(
-      catchError((error) => this.handleError<PropertiesData>(error))
-    );
+  getHousesByUser(userId: string): Observable<PropertiesData[]> {
+    return this.firestore.collection<PropertiesData>('houses', ref => ref.where('userId', '==', userId)).valueChanges({ idField: 'id' });
   }
 
-  updateProperty(id: string, properties: PropertiesData): Observable<PropertiesData> {
-    return this.http.put<PropertiesData>(`${this.APIurl}properties/${id}`, properties).pipe(
-      catchError((error) => this.handleError<PropertiesData>(error))
+  updateProperty(id: string, property: Partial<PropertiesData>): Observable<void> {
+    return from(this.firestore.collection<PropertiesData>('houses').doc(id).update(property)).pipe(
+      catchError(err => {
+        console.error('Error updating property:', err);
+        return of(void 0);
+      })
     );
   }
 
   deleteProperty(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.APIurl}properties/${id}`).pipe(
-      catchError((error) => this.handleError<void>(error))
+    return from(this.firestore.collection<PropertiesData>('houses').doc(id).delete()).pipe(
+      catchError(err => {
+        console.error('Error deleting property:', err);
+        return of(void 0);
+      })
     );
   }
 
-  private handleError<T>(error: HttpErrorResponse, result?: T): Observable<T> {
-    console.error('An error occurred:', error.message);
-    return of(result as T);
-  }
 }

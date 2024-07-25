@@ -49,7 +49,9 @@
 </button>
 
 <div class="logo-box">
-  <span>VILLA</span>
+  <a href="/home">
+    <span>VILLA</span>
+  </a>
 </div>
 
 <div class="navigation-box" #navigationHeader>
@@ -62,13 +64,26 @@
 </button>
 <a href="/house">Home</a>
 <a href="/properties">Properties</a>
-<a href="/contactUs">Contact Us</a>
-@if (!userLoggedIn) {
+<a href="/contactUs">Contact us</a>
+@if (!userLoggedIn && checkUserStatus) {
   <a href="/login">Login</a>
 }
-@if (userLoggedIn) {
-  <a (click)="logout()">Logout</a>
+
+@if(userLoggedIn ){
+  <img (click)="toggleUserData()" class="userImg" [src]="photoURL" alt="user photo">
+  @if (this.showUserData) {
+    <div class="userBox">
+      <span class="name item-padd">{{displayName}}</span>
+      <span class="email item-padd">{{email}}</span>
+      <a class="logout" href="/userPage">
+        <span>Add a new house</span>
+      </a>
+      <span class="logout" (click)="logout()">Logout</span>
+    </div>
+  }
 }
+
 </div>
 </header>
 </div>
+<div (click)="toggleUserData()" [ngClass]=" closeBG ? 'close' : ''" ></div>
