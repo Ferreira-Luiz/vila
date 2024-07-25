@@ -4,13 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CrudHouseService } from '../../core/service/crudHouse.service';
-import { BestDealComponent } from '../../shared/components/best-deal/best-deal.component';
 import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 
 @Component({
   selector: 'app-properties-details',
   standalone: true,
-  imports: [CommonModule, BestDealComponent, PageBannerComponent],
+  imports: [CommonModule, PageBannerComponent],
   templateUrl: './properties-details.component.html',
   styleUrls: ['./properties-details.component.css']
 })

@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 
 import { IconsModule } from '../../../icons/icons.module';
-import { PropertiesData } from '../../models/interfaces/propertiesType';
-import { SectionTitleComponent } from '../section-title/section-title.component';
+import { PropertiesData } from '../../../shared/models/interfaces/propertiesType';
+import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
 import { CrudHouseService } from './../../../core/service/crudHouse.service';
 
 
