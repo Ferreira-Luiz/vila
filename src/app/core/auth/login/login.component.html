@@ -6,12 +6,12 @@
           <span>How to i get started lorem ipsum dolor at?</span>
         </div>
         <form [formGroup]="form" (ngSubmit)="onLogin()">
-          @if(this.hasError && this.form.controls.email.invalid) {
+          @if(this.hasError) {
             <span class="error">This field is required</span>
           }
           <span (click)="testeAcc()" id="devMSG">use uma conta de teste. CLIQUE AQUI !!</span>
               <input class="user-input-placeholder" type="text" formControlName="email" placeholder="Email">
-              @if(this.hasError && this.form.controls.password.invalid) {
+              @if( this.hasError ) {
                 <span class="error">The password is incorrect</span>
               }
               <div class="password-container">
@@ -33,11 +33,11 @@
             <span>Login with <b>facebook</b></span>
           </div>
           <span class="text-with-lines"><b>Register</b> Now</span>
+          <a href="/register">
           <div class="socialLoginBox">
-            <a href="/register">
               <span><b>Create</b> your account</span>
-            </a>
-          </div>
+            </div>
+          </a>
       </div>
       <div class="image-box">
         <img src="../../../../assets/images/woman.png" alt="woman">

@@ -2,7 +2,7 @@ import { AuthService } from '../../auth/auth.service';
 import { Component, ElementRef, ViewChild, HostListener, OnInit, viewChild } from '@angular/core';
 import { IconsModule } from '../../../icons/icons.module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable, map, takeUntil } from 'rxjs';
+import { Observable, map, take, takeUntil } from 'rxjs';
 import { unsub } from '../../../shared/utils/unsub';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -58,10 +58,6 @@ export class HeaderComponent extends unsub implements OnInit {
     .pipe(takeUntil(this.unsub$))
     .subscribe(loggedIn => {
       this.userLoggedIn = loggedIn;
-      if( this.userLoggedIn) {
-        this.loadUserProfile()
-      }
-      this.checkUserStatus = true;
     });
   }
 
@@ -91,6 +87,7 @@ export class HeaderComponent extends unsub implements OnInit {
   logout() {
     this.authService.logout();
     this.closeBG = false;
+    this.showUserData = false;
     this.router.navigate(['/home']);
   }
 
@@ -109,5 +106,8 @@ export class HeaderComponent extends unsub implements OnInit {
   toggleUserData() {
     this.showUserData = !this.showUserData;
     this.closeBG = !this.closeBG;
+    if(this.userLoggedIn) {
+      this.loadUserProfile();
+    }
   }
 }

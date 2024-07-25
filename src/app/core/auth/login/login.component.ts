@@ -32,6 +32,9 @@ export class LoginComponent extends unsub {
   })
 
   onLogin() {
+    if (this.form.invalid) {
+      return;
+    }
       const email = this.form.value.email;
       const password = this.form.value.password;
 
@@ -39,11 +42,7 @@ export class LoginComponent extends unsub {
         this.authService.login(email, password)
         .pipe(takeUntil(this.unsub$))
         .subscribe(() => {
-          if (this.form.invalid) {
-            this.hasError = true;
-          } else {
-            this.router.navigate(['/userPage']);
-          }
+        this.router.navigate(['/userPage']);
         });
       }
   }

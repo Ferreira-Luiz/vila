@@ -31,7 +31,6 @@ export class AuthService {
       switchMap(({ user }) => {
         if (user) {
           return from(user.updateProfile({ displayName, photoURL })).pipe(
-            switchMap(() => this.logout()),
             map(() => user),
             catchError(err => {
               console.error('Erro ao atualizar perfil:', err);

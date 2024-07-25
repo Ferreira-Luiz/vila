@@ -57,7 +57,7 @@ export class RegisterComponent extends unsub {
       this.authService.register(email, password, displayName, photoURL)
       .pipe(takeUntil(this.unsub$))
       .subscribe(() => {
-          this.router.navigate(['/login']);
+        this.router.navigate(['/userPage']);
         }
       );
     }

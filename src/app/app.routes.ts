@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuardGuard } from './core/auth/guards/auth.guard';
+import { loggedInGuard, notLoggedInGuard } from './core/auth/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +18,7 @@ export const routes: Routes = [
   },
   { path: 'login',
     loadComponent: () => import('./core/auth/login/login.component').then((c) => c.LoginComponent),
+    canActivate: [loggedInGuard],
   },
   {
     path: 'register',
@@ -25,7 +26,7 @@ export const routes: Routes = [
   },
   { path: 'userPage',
     loadComponent: () => import('./pages/userPage/userPage.component').then((c) => c.userPage),
-    canActivate: [authGuardGuard],
+    canActivate: [notLoggedInGuard],
   },
   { path: '**', redirectTo: '/home' }
 ];

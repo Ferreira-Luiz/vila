@@ -62,26 +62,35 @@
     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
   </svg>
 </button>
-<a href="/house">Home</a>
-<a href="/properties">Properties</a>
-<a href="/contactUs">Contact us</a>
-@if (!userLoggedIn && checkUserStatus) {
-  <a href="/login">Login</a>
-}
+<a class="link" href="/house">Home</a>
+<a class="link" href="/properties">Properties</a>
+<a class="link" href="/contactUs">Contact us</a>
 
-@if(userLoggedIn ){
-  <img (click)="toggleUserData()" class="userImg" [src]="photoURL" alt="user photo">
+  <img class="iconUser" (click)="toggleUserData()" src="../../../../assets/icons/user.png" alt="icon">
   @if (this.showUserData) {
     <div class="userBox">
-      <span class="name item-padd">{{displayName}}</span>
-      <span class="email item-padd">{{email}}</span>
-      <a class="logout" href="/userPage">
-        <span>Add a new house</span>
-      </a>
-      <span class="logout" (click)="logout()">Logout</span>
+
+      @if (!userLoggedIn) {
+        <div class="login">
+          <a class="logout" href="/login">Login</a>
+          <a class="logout" href="/register">Create your account</a>
+        </div>
+      }
+
+      @if (userLoggedIn) {
+        <img class="userImg" [src]="photoURL" alt="user photo">
+        <span class="nameUser">{{displayName}}</span>
+        <span class="emailUser">{{email}}</span>
+        <div class="userBTN">
+          <a class="logout" href="/userPage">
+            <span>Publish your house</span>
+          </a>
+          <span class="logout" (click)="logout()">Logout</span>
+        </div>
+      }
+
     </div>
   }
-}
 
 </div>
 </header>
