@@ -1,0 +1,49 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular project
+      env:
+        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+        FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+        FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+        FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+      run: |
+        echo "export const environment = {
+          production: true,
+          firebaseConfig: {
+            apiKey: '$FIREBASE_API_KEY',
+            authDomain: '$FIREBASE_AUTH_DOMAIN',
+            projectId: '$FIREBASE_PROJECT_ID',
+            storageBucket: '$FIREBASE_STORAGE_BUCKET',
+            messagingSenderId: '$FIREBASE_MESSAGING_SENDER_ID',
+            appId: '$FIREBASE_APP_ID'
+          }
+        };" > src/environments/environment.prod.ts
+        npm run build -- --configuration=production
+
+    - name: Deploy to Firebase
+      run: |
+        npm install -g firebase-tools
+        firebase deploy --only hosting --token ${{ secrets.FIREBASE_DEPLOY_TOKEN }}
