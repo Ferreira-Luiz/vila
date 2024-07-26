@@ -30,6 +30,7 @@ jobs:
         FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
         FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
       run: |
+        mkdir -p src/environments
         echo "export const environment = {
           production: true,
           firebaseConfig: {
