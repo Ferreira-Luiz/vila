@@ -4,8 +4,8 @@
   width: 34rem;
   height: 11rem;
   max-width: 100%;
-  border-radius: 1.5rem;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
   padding: 3rem;
 }
 
@@ -21,7 +21,6 @@
   gap: .5rem;
 }
 
-
 .card-text .card-title {
   font-size: 2rem;
   font-weight: 700;
@@ -31,5 +30,20 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--gray);
+}
+
+@media (max-width:  544px) {
+  .card {
+   width: 25rem;
+  }
+
+  .card-text .card-title {
+    font-size: 1.6rem;
+  }
+
+  .card-text .card-subtitle {
+    font-size: 1.4rem;
+  }
+
 }
 

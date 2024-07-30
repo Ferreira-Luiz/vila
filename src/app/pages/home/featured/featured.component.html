@@ -2,14 +2,16 @@
   <div class="container">
     <div class="content-box">
       <div class="images">
-        <img src="../../../../assets/images/featured.jpg" alt="image">
+        <img class="big-img" src="../../../../assets/images/featured.jpg" alt="image">
         <div class="icon-image">
           <img src="../../../../assets/icons/featured-icon.png" alt="icon">
         </div>
       </div>
       <div class="text-box">
-        <app-section-title style="color: var(--strong-pink);">FEATURED</app-section-title>
-        <h1>Best Appartment & Sea View</h1>
+        <div class="text-title-group">
+          <app-section-title style="color: var(--strong-pink);">FEATURED</app-section-title>
+          <h1>Best Appartment & Sea View</h1>
+        </div>
         <div class="faq-box">
           <span #firstQuestion class="faq-title active" (click)="toggleQuestion(1)">How to Find your Home?</span>
           @if (question1) {
@@ -17,11 +19,11 @@
           }
           <span #secondQuestion class="faq-title" (click)="toggleQuestion(2)">How to Use our Website?</span>
           @if (question2) {
-            <span class="faq-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae minima, accusantium sint placeat temporibus sapiente quisquam architecto maxime alias officia.</span>
+            <span class="faq-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quidem voluptatibus, optio perspiciatis incids.</span>
           }
           <span #lastQuestion  class="faq-title last" (click)="toggleQuestion(3)">How to Find the Best Price?</span>
           @if (question3) {
-            <span class="faq-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam magnam delectus consequuntur.</span>
+            <span class="faq-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quidem voluptatibus, optio perspiciatis incids.</span>
           }
         </div>
       </div>

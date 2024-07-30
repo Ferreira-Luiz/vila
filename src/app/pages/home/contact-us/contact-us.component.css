@@ -1,24 +1,56 @@
 .container {
   position: relative;
-  top: -20rem;
+  top: -23rem;
   display: flex;
-  width: 130rem;
+  width: 134rem;
   max-width: 100%;
   margin: 0 auto;
+  padding: 0 2rem;
   justify-content: space-between;
 }
 
 .map-box {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  justify-content: space-between;
 }
 
 .map-box iframe {
   width: 100%;
+  border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .map-box .cards {
   display: flex;
   gap: 3rem;
+}
+
+.form-box {
+  max-width: 100%;
+}
+
+@media (max-width:  1440px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+  }
+
+  .map-box {
+    width: 100%;
+    gap: 5rem;
+  }
+
+  .map-box .cards {
+    justify-content: center;
+  }
+}
+
+@media (max-width:  768px) {
+  .map-box .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }

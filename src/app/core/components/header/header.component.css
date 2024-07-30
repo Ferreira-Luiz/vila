@@ -275,7 +275,13 @@ header, .navigation-box {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .contacts-content {
+    display: none;
+  }
+}
+
+@media (max-width: 544px) {
   header {
     box-shadow: none;
   }

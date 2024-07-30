@@ -46,3 +46,17 @@
   width: 60rem;
 }
 
+@media (max-width: 768px) {
+  .banner-subtitle {
+    width: 40rem;
+    font-size: 4rem;
+    margin: 0 2rem;
+  }
+}
+
+@media (max-width: 544px) {
+  .banner-subtitle {
+    width: 100%;
+    font-size: 3rem;
+  }
+}

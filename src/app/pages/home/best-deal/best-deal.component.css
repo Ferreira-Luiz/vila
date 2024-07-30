@@ -1,16 +1,21 @@
-.container {
-  margin-top: 10rem;
+section {
   width: 100%;
   background-color: var(--darkWhite);
   padding: 10rem 0;
+  margin-top: 10rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 134rem;
 }
 
 .top-box {
-  width: 130rem;
   max-width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 0 2rem;
 }
 
 .top-text {
@@ -48,14 +53,13 @@
   height: 5rem;
   color: var(--white);
   border-radius: .5rem;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .infos-container {
   padding-top: 10rem;
-  width: 130rem;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 2rem;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -71,7 +75,7 @@
   width: 30rem;
   height: 37rem;
   max-width: 100%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   padding: 3rem 1.5rem;
 }
@@ -121,6 +125,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .more-information {
@@ -142,6 +148,7 @@
 .more-information .description {
   position: relative;
   font-size: 1.5rem;
+  width: 30rem;
   max-height: 23rem;
   overflow: hidden;
 }
@@ -189,3 +196,80 @@
   color: var(--white);
 }
 
+@media (max-width: 1280px) {
+  .infos .line .title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1012px) {
+  .top-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10rem;
+  }
+
+  .infos .line {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 2.2rem;
+  }
+
+  .infos {
+    height: 100%;
+    padding: 3rem 1.5rem 1rem 1.5rem;
+  }
+}
+
+@media (max-width:  768px) {
+  .infos-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .infos {
+    width: 100%;
+  }
+
+  .infos .line {
+    flex-direction: row;
+  }
+
+  .infos .line .title {
+    font-size: 1.6rem;
+  }
+
+  .more-information {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 40rem;
+    max-width: 100%;
+  }
+
+  .more-information .description {
+    position: relative;
+    font-size: 1.5rem;
+    width: 100%;
+    max-height: 23rem;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
+
+@media (max-width:  544px) {
+  .houseType {
+    flex-direction: column;
+    align-items: center;
+  }
+}

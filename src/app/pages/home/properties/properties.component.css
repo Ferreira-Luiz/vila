@@ -1,7 +1,12 @@
+section {
+  margin: 0 2rem;
+}
+
 .properties-container {
   padding-top: 10rem;
   display: flex;
   width: 130rem;
+  max-width: 100%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -19,5 +24,4 @@
 .subTitle {
   font-size: 3.8rem;
   font-weight: 900;
-
 }

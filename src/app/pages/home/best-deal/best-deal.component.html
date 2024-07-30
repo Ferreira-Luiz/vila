@@ -1,18 +1,20 @@
-<div class="container">
-  <div class="top-box">
-    <div class="top-text">
-      <app-section-title style="color: var(--strong-pink);">BEST DEAL</app-section-title>
-      <span class="subTitle">Find Your Best Deal Right Now!</span>
-    </div>
-    <div class="houseType">
+<section>
+
+  <div class="container">
+    <div class="top-box">
+      <div class="top-text">
+        <app-section-title style="color: var(--strong-pink);">BEST DEAL</app-section-title>
+        <span class="subTitle">Find Your Best Deal Right Now!</span>
+      </div>
+      <div class="houseType">
         <span #appartment (click)="onSelectType('Appartment')" class="active">Appartment</span>
         <span #villa  (click)="onSelectType('Villa House')" class="bgElement">Villa House</span>
         <span #penthouse (click)="onSelectType('Penthouse')" class="bgElement">Penthouse</span>
+      </div>
     </div>
-  </div>
 
-  <div class="infos-container">
-    @if (selectedProperty$ | async; as property) {
+    <div class="infos-container">
+      @if (selectedProperty$ | async; as property) {
         <div class="infos">
           <div class="line">
             <span class="title">Total Flat Space</span>
@@ -55,4 +57,6 @@
         </div>
       }
     </div>
-</div>
+  </div>
+
+</section>

@@ -1,15 +1,18 @@
+section {
+  margin: 10rem 2rem;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
+  gap: 5rem;
   width: 130rem;
+  max-width: 100%;
   margin: 0 auto;
-  margin-top: 5rem;
-  color: var(--black-text);
 }
 
+
 .content-box {
-  width: 85rem;
-  max-width: 100%;
   display: flex;
   gap: 4rem;
 }
@@ -26,7 +29,7 @@
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  bottom: -4rem;
+  bottom: -2rem;
   left: -4rem;
   background-color: var(--orange);
 }
@@ -36,25 +39,29 @@
   left: .8rem;
 }
 
+.images .big-img {
+  border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
+}
+
 .text-box {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: space-between;
 }
 
 .text-box h1 {
-  font-size: 5rem;
+  font-size: 6.5rem;
 }
 
 .faq-box {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 5rem;
   background-color: var(--darkWhite);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .faq-title {
@@ -86,9 +93,9 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 5rem;
-  width: 30.5rem;
+  width: 40rem;
   max-width: 100%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .box {
@@ -115,6 +122,8 @@
 }
 
 .box-text {
+  width: 15rem;
+  max-width: 100%;
   display: flex;
   gap: .5rem;
   flex-direction: column;
@@ -128,6 +137,66 @@
 .box-text .box-description {
   color: var(--pink);
   font-weight: 600;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details-box {
+    gap: 5rem;
+    width: 40rem;
+    max-width: 100%;
+  }
+
+  .box {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .icon-image {
+    top: -3rem;
+    right: -2rem;
+    left: auto;
+  }
+}
+
+@media (max-width: 1012px) {
+  .text-box h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text-title-group {
+    text-align: center;
+  }
+
+  .text-box {
+    justify-content: center;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 544px) {
+ .big-img {
+  width: 100%;
+  object-fit: cover;
+ }
+
+ .icon-image {
+  display: none;
+}
 }
 
 
