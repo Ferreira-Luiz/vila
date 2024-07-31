@@ -1,12 +1,12 @@
 .container {
-  width: 130rem;
+  width: 140rem;
   max-width: 100%;
   margin: 0 auto;
   margin-top: 10rem;
 }
 
 .house-container {
-  margin: 10rem 0;
+  margin: 10rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -32,6 +32,7 @@
   max-width: 100%;
   height: 26rem;
   border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
 .house-infos {
@@ -133,7 +134,7 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  margin-bottom: 5rem;
+  margin: 0 2rem 5rem 2rem;
 }
 
 .pagination button {
@@ -144,7 +145,8 @@
   color: var(--white);
   height: 4rem;
   width: 10rem;
-  border-radius: .5rem;
+  border-radius: 1rem;
+  box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
 }
 
 .filter {
@@ -153,6 +155,7 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin: 0 2rem;
 }
 
 .active {
@@ -161,7 +164,7 @@
 
 .filter button {
   cursor: pointer;
-  border-radius: .5rem;
+  border-radius: 1rem;
   font-size: 1.8rem;
   color: var(--white);
   background: var(--black-text);
@@ -213,10 +216,44 @@
     bottom: -1.5rem;
   }
 
-  .bot-info .line {
-    gap: 1rem;
+  .bot-info .line span {
+    font-size: 1.5rem;
   }
 
+  .bot-info .line span b {
+    font-size: 1.5rem;
+  }
+
+  .pagination {
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .pagination button {
+    font-size: 1.6rem;
+    width: 8rem;
+  }
+
+  .details {
+    margin-top: 4rem;
+    height: 4rem;
+  }
+
+  .info-top .price {
+    font-size: 1.8rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width:  320px) {
+  .info-top {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 

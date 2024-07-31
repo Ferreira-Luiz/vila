@@ -94,4 +94,14 @@
     border-radius: 1.5rem;
     border: 2px solid var(--orange);
   }
+
+  .box-section {
+    position: relative;
+    top: -5rem;
+  }
+
+  .box-info {
+    gap: 15rem;
+  }
+
 }
