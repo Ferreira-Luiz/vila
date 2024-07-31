@@ -57,3 +57,13 @@
 .btn:hover {
   color: var(--orange);
 }
+
+@media (max-width: 544px) {
+  .form-box {
+    width: 100%;
+    align-items: center;
+  }
+  .box {
+    width: 100%;
+  }
+}

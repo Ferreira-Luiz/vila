@@ -1,6 +1,6 @@
 
 section {
-  margin-bottom: 5rem;
+  margin: 10rem 2rem 5rem 2rem;
 }
 
 .container {
@@ -9,7 +9,7 @@ section {
   max-width: 100%;
   margin: 0 auto;
   gap: 4rem;
-  padding: 10rem 0;
+  margin-bottom: 10rem;
 }
 
 .text-box {
@@ -43,4 +43,41 @@ section {
 
 .map iframe {
   width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .text-box {
+    gap: 5rem;
+  }
+  .text-box h3 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1012px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-box {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 544px) {
+  .form-box {
+    text-align: center;
+    width: 100%;
+  }
 }
