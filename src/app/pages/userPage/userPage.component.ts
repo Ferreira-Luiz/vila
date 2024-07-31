@@ -10,11 +10,15 @@ import { PropertiesData } from '../../shared/models/interfaces/propertiesType';
 import { moneyPipe } from '../../shared/pipes/money.pipe';
 import { ImageURLRegexValidator } from '../../shared/utils/imageURLvalidator';
 import { unsub } from '../../shared/utils/unsub';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'userPage',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IconsModule, moneyPipe],
+  imports: [
+  CommonModule, ReactiveFormsModule,
+  IconsModule, moneyPipe, RouterModule
+],
   templateUrl: './userPage.component.html',
   styleUrls: ['./userPage.component.css']
 })
@@ -27,6 +31,7 @@ export class userPage extends unsub implements OnInit {
   editingPropertyId: string | null = null;
   hasError: boolean = false;
   showHouses: boolean = false;
+  showHouseDetails: boolean = false;
 
   protected houseForm = this.formBuilderService.group({
     title: ['', [Validators.required]],
@@ -49,6 +54,10 @@ export class userPage extends unsub implements OnInit {
 
   ngOnInit() {
     this.loadUserProperties();
+  }
+
+  toogleShowHouseDetails() {
+    this.showHouseDetails = !this.showHouseDetails;
   }
 
   loadUserProperties() {
@@ -77,6 +86,12 @@ export class userPage extends unsub implements OnInit {
         this.loadUserProperties();
       });
     }
+  }
+
+  cancelEditMode() {
+    this.editMode = false;
+    this.editingPropertyId = null;
+    this.houseForm.reset();
   }
 
   updateProperty() {

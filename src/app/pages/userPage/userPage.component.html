@@ -161,6 +161,7 @@
           }
           @if (editMode) {
             <button (click)="updateProperty()" type="submit">Update Infos</button>
+            <span class="cancelEditMode" (click)="cancelEditMode()">Cancel edit Mode</span>
           }
         </div>
       </div>
@@ -172,23 +173,27 @@
               @for (property of houses; track property.id) {
                 <li>
             <div class="house">
-              <img [src]="property.image" alt="house image">
+              <a [routerLink]="['/properties',property.id]">
+                <img [src]="property.image" alt="house image">
+              </a>
+              <span class="showDetails" (click)="toogleShowHouseDetails()">Show Details</span>
+              <span class="DetailsHouseTitle">{{ property.title }}</span>
+              @if (showHouseDetails) {
               <div class="detailsOfHouse">
-                <span class="title">{{ property.title }}</span>
-                <span class="item"><b>Price:</b>{{ property.price | money  }}</span>
-                <span class="item"><b>Rooms:</b>{{ property.rooms }}</span>
-                <span class="item"><b>Bedrooms:</b>{{ property.bedrooms }}</span>
-                <span class="item"><b>Bathrooms:</b>{{ property.bathrooms }}</span>
-              </div>
+                  <span class="item"><b>Price:</b>{{ property.price | money  }}</span>
+                  <span class="item"><b>Rooms:</b>{{ property.rooms }}</span>
+                  <span class="item"><b>Bedrooms:</b>{{ property.bedrooms }}</span>
+                  <span class="item"><b>Bathrooms:</b>{{ property.bathrooms }}</span>
+                </div>
 
-              <div class="detailsOfHouse">
-                <span class="item"><b>Type:</b>{{ property.type }}</span>
-                <span class="item"><b>floor:</b>{{ property.floor }}</span>
-                <span class="item"><b>Area:</b>{{ property.area }}m2</span>
-                <span class="item"><b>Parking Spots:</b>{{ property.parkingSpots }}</span>
-                <span class="item"><b>Payment Method:</b>{{ property.paymentProcess }}</span>
-              </div>
-
+                <div class="detailsOfHouse">
+                  <span class="item"><b>Type:</b>{{ property.type }}</span>
+                  <span class="item"><b>floor:</b>{{ property.floor }}</span>
+                  <span class="item"><b>Area:</b>{{ property.area }}m2</span>
+                  <span class="item"><b>Parking Spots:</b>{{ property.parkingSpots }}</span>
+                  <span class="item"><b>Payment Method:</b>{{ property.paymentProcess }}</span>
+                </div>
+              }
               <div class="buttons-section">
                 <div class="btn-icon" (click)="editProperty(property)">
                   <fa-icon [icon]="['fas', 'pen']" [class]="['fa-lg', 'icon', 'edit']"></fa-icon>
