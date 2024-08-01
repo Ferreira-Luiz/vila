@@ -23,7 +23,6 @@ export class HeaderComponent extends unsub implements OnInit {
   @ViewChild('header') header!:ElementRef;
   @ViewChild('navigationHeader') navigationHeader!:ElementRef;
   @ViewChild('bg') bg!:ElementRef;
-  @ViewChild('arrow') arrow!:ElementRef;
   showUserData: boolean = false;
   checkUserStatus: boolean = false;
   closeBG: boolean = false;
@@ -63,10 +62,10 @@ export class HeaderComponent extends unsub implements OnInit {
 
   toogleSideBar() {
       this.showSideBar = true;
+      this.bg.nativeElement.style.display = 'block';
       this.navigationHeader.nativeElement.style.marginLeft = '-10vw';
       this.navigationHeader.nativeElement.classList.add('animate-sidebar');
       this.bg.nativeElement.style.display = 'block';
-      this.arrow.nativeElement.style.display = 'none';
   }
 
   closeSideBar() {
@@ -74,7 +73,6 @@ export class HeaderComponent extends unsub implements OnInit {
       this.navigationHeader.nativeElement.style.marginLeft = '-100vw';
       this.navigationHeader.nativeElement.classList.remove('animate-sidebar');
       this.bg.nativeElement.style.display = 'none';
-      this.arrow.nativeElement.style.display = 'block';
   }
 
   @HostListener('window:scroll', [])

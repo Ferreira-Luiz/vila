@@ -119,6 +119,7 @@ section {
 .image {
   max-width: 100%;
   width: 56rem;
+  height: 50rem;
 }
 
 .image img {
@@ -133,9 +134,9 @@ section {
   color: var(--black-text);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: first baseline;
+  gap: 5rem;
   width: 32rem;
-  height: 50rem;
   max-width: 100%;
 }
 
@@ -144,11 +145,11 @@ section {
   font-weight: 700;
 }
 
-
 .more-information .description {
   position: relative;
   font-size: 1.5rem;
   width: 30rem;
+  height: 20rem;
   max-height: 23rem;
   overflow: hidden;
 }
@@ -167,6 +168,7 @@ section {
   cursor: pointer;
   position: relative;
   display: flex;
+  right: -2rem;
   align-items: center;
   justify-content: center;
   color: var(--white);

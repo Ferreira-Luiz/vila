@@ -143,10 +143,6 @@ header, .navigation-box {
   cursor: pointer;
 }
 
-.arrow {
-  display: none;
-}
-
 .iconUser {
   cursor: pointer;
 }
@@ -215,7 +211,6 @@ header, .navigation-box {
 }
 
 .userBTN {
-  font-family: "Fredoka", sans-serif;
   max-width: 100%;
   width: 100%;
   margin-top: 2rem;
@@ -265,6 +260,25 @@ header, .navigation-box {
   animation-duration: .5s;
 }
 
+.bg-container {
+  .parent-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+.bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
 @keyframes showSideBar {
   from {
     margin-left: -100vw;
@@ -290,14 +304,6 @@ header, .navigation-box {
     display: block;
   }
 
-  .arrow {
-    display: block;
-    cursor: pointer;
-    transform: rotate(-90deg);
-    width: 2.6rem;
-    height: 2.6rem;
-  }
-
   .navigation-box {
     position: fixed;
     z-index: 99;
@@ -305,11 +311,17 @@ header, .navigation-box {
     top: 0;
     background-color: var(--white);
     height: 100vh;
-    width: 60vw;
+    width: 70vw;
     padding: 1.6rem;
     margin-left: -100vw;
   }
 
+  .userBox {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60vw;
+  }
 
 }
 
