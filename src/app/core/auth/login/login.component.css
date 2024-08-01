@@ -63,7 +63,6 @@
   color: var(--black-text);
 }
 
-
 .password-container {
   position: relative;
   display: flex;
@@ -172,4 +171,37 @@ form input {
   cursor: pointer;
   font-size: 1.2rem;
   color: red;
+}
+
+@media (max-width: 1012px) {
+  .container {
+    justify-content: center;
+  }
+  .image-box {
+    display: none;
+  }
+  .form-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 544px) {
+  .form-container, .form-text, .text-with-lines, .socialLoginBox {
+    margin: 0 2rem;
+  }
+  form input, form, .password-container, .text-with-lines, .socialLoginBox{
+    width: 100%;
+  }
+
+  .text-with-lines {
+    text-align: center;
+  }
+
+  .text-with-lines::before {
+    left: 0;
+  }
+
+  .text-with-lines::after {
+    right: 0;
+  }
 }

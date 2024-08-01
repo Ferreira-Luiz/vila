@@ -113,6 +113,7 @@ export class HeaderComponent extends unsub implements OnInit {
     this.closeBG = true;
     if(this.userLoggedIn) {
       this.loadUserProfile();
+      console.log('data')
     }
   }
 }

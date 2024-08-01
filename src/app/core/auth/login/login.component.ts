@@ -55,4 +55,8 @@ export class LoginComponent extends unsub {
     this.form.controls.email.patchValue('tt@email.com');
     this.form.controls.password.patchValue('senha123');
   }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
 }

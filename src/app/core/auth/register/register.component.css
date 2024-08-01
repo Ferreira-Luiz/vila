@@ -164,3 +164,24 @@ form input {
   font-size: 1.4rem;
   color: red;
 }
+
+@media (max-width: 544px) {
+  .form-container, .form-text, .text-with-lines, .socialLoginBox {
+    margin: 0 2rem;
+  }
+  form input, form, .password-container, .text-with-lines, .socialLoginBox{
+    width: 100%;
+  }
+
+  .text-with-lines {
+    text-align: center;
+  }
+
+  .text-with-lines::before {
+    display: none;
+  }
+
+  .text-with-lines::after {
+    display: none;
+  }
+}

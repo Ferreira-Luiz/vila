@@ -71,4 +71,8 @@ export class RegisterComponent extends unsub {
     this.ConfirmpasswordFieldType = this.ConfirmpasswordFieldType === 'password' ? 'text' : 'password';
   }
 
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+
 }

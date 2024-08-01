@@ -22,7 +22,7 @@
               </div>
 
               <button class="btn" type="submit">Login Now</button>
-            </form>
+        </form>
           <span class="text-with-lines"><b>Login</b> with Others</span>
           <div class="socialLoginBox">
             <img src="../../../../assets/icons/google.svg" alt="">
@@ -33,11 +33,9 @@
             <span>Login with <b>facebook</b></span>
           </div>
           <span class="text-with-lines"><b>Register</b> Now</span>
-          <a href="/register">
-          <div class="socialLoginBox">
+          <div (click)="navigateToRegister()" class="socialLoginBox">
               <span><b>Create</b> your account</span>
-            </div>
-          </a>
+          </div>
       </div>
       <div class="image-box">
         <img src="../../../../assets/images/woman.png" alt="woman">
