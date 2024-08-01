@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 import { getAuth } from '@angular/fire/auth';
 
 import { routes } from './app.routes';
-import { environment } from '../environments/environment';
+import { firebaseConfig } from '../environments/environments';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     importProvidersFrom([
-      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireModule.initializeApp(firebaseConfig),
       AngularFireAuthModule,
       AngularFireDatabaseModule,
       AngularFirestoreModule,
