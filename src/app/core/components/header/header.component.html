@@ -66,7 +66,7 @@
 <a class="link" href="/properties">Properties</a>
 <a class="link" href="/contactUs">Contact us</a>
 
-  <img class="iconUser" (click)="toggleUserData()" src="../../../../assets/icons/user.png" alt="icon">
+  <img class="iconUser" (click)="openUserBox() " src="../../../../assets/icons/user.png" alt="icon">
   @if (this.showUserData) {
     <div class="userBox">
 
@@ -98,4 +98,4 @@
 <div class="bg-container">
   <div (click)="closeSideBar()" class="bg" #bg></div>
 </div>
-<div (click)="toggleUserData()" [ngClass]=" closeBG ? 'close' : ''" ></div>
+<div (click)="closeUserBox()" [ngClass]=" closeBG ? 'close' : ''" ></div>

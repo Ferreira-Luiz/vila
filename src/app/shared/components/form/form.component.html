@@ -2,19 +2,19 @@
       <div class="form-box">
         <div class="box">
           <label for="name">Full Name</label>
-          <input type="text" formControlName="name" placeholder="Your Name...">
+          <input id="name" autocomplete="additional-name" type="text" formControlName="name" placeholder="Your Name...">
         </div>
         <div class="box">
           <label for="email">Email</label>
-          <input type="text" formControlName="email" placeholder="Your E-mail...">
+          <input id="email" autocomplete="email" type="text" formControlName="email" placeholder="Your E-mail...">
         </div>
         <div class="box">
           <label for="subject">Subject</label>
-          <input type="text" formControlName="subject" placeholder="Subject...">
+          <input id="subject" autocomplete="off" type="text" formControlName="subject" placeholder="Subject...">
         </div>
         <div class="box">
           <label for="message">Message</label>
-          <textarea type="text" formControlName="message" placeholder="Your Message..." id="message"></textarea>
+          <textarea type="text" autocomplete="off" formControlName="message" placeholder="Your Message..." id="message"></textarea>
         </div>
         <button class="btn" type="submit">Send Message</button>
       </div>

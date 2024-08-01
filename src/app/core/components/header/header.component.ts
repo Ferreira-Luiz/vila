@@ -50,7 +50,9 @@ export class HeaderComponent extends unsub implements OnInit {
     .subscribe(result => {
       this.isMobile = !result.matches;
       if(this.isMobile == false) {
-        this.bg.nativeElement.style.display = 'none';
+        if(this.bg) {
+          this.bg.nativeElement.style.display = 'none';
+        }
       }
     });
     this.authService.isLoggedIn$
@@ -101,9 +103,14 @@ export class HeaderComponent extends unsub implements OnInit {
       });
   }
 
-  toggleUserData() {
-    this.showUserData = !this.showUserData;
-    this.closeBG = !this.closeBG;
+  closeUserBox() {
+    this.showUserData = false;
+    this.closeBG = false;
+  }
+
+  openUserBox() {
+    this.showUserData = true;
+    this.closeBG = true;
     if(this.userLoggedIn) {
       this.loadUserProfile();
     }
