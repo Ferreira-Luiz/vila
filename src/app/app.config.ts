@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 import { getAuth } from '@angular/fire/auth';
 
 import { routes } from './app.routes';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.development';
 
 
 export const appConfig: ApplicationConfig = {
