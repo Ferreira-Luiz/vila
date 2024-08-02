@@ -1,5 +1,4 @@
 <section>
-
   <div class="container">
     <div class="top-box">
       <div class="top-text">
@@ -12,51 +11,59 @@
         <span #penthouse (click)="onSelectType('Penthouse')" class="bgElement">Penthouse</span>
       </div>
     </div>
-
+    @defer (on viewport; on timer(10s)) {
     <div class="infos-container">
-      @if (selectedProperty$ | async; as property) {
-        <div class="infos">
-          <div class="line">
-            <span class="title">Total Flat Space</span>
-            <span class="data">{{property.area}} m2</span>
-          </div>
+          @if (selectedProperty$ | async; as property) {
+            <div class="infos">
+              <div class="line">
+                <span class="title">Total Flat Space</span>
+                <span class="data">{{property.area}} m2</span>
+              </div>
 
-          <div class="line">
-            <span class="title">Floor number</span>
-            <span class="data">{{property.floor}}th</span>
-          </div>
+              <div class="line">
+                <span class="title">Floor number</span>
+                <span class="data">{{property.floor}}th</span>
+              </div>
 
-          <div class="line">
-            <span class="title">Number of rooms</span>
-            <span class="data">{{property.bedrooms}}</span>
-          </div>
+              <div class="line">
+                <span class="title">Number of rooms</span>
+                <span class="data">{{property.bedrooms}}</span>
+              </div>
 
-          <div class="line">
-            <span class="title">Parking Spots</span>
-            <span class="data">{{property.parkingSpots}}</span>
-          </div>
+              <div class="line">
+                <span class="title">Parking Spots</span>
+                <span class="data">{{property.parkingSpots}}</span>
+              </div>
 
-          <div class="line">
-            <span class="title">Payment Process</span>
-            <span class="data">{{property.paymentProcess}}</span>
-          </div>
-        </div>
-
-        <div class="image">
-          <img [src]="property.image" alt="property image">
-        </div>
-        <div class="more-information">
-          <span class="extra-info">Extra Info About Property</span>
-          <span class="description">{{property.description}}</span>
-          <a (click)="toTop()" [routerLink]="['/properties',property.id]">
-            <div class="visit">
-              <fa-icon [icon]="['fas', 'calendar-days']" [class]="['fa-lg', 'icon']"></fa-icon>
-              <span>View Details</span>
+              <div class="line">
+                <span class="title">Payment Process</span>
+                <span class="data">{{property.paymentProcess}}</span>
+              </div>
             </div>
-          </a>
+
+            <div class="image">
+              <img [src]="property.image" alt="property image">
+            </div>
+            <div class="more-information">
+              <span class="extra-info">Extra Info About Property</span>
+              <span class="description">{{property.description}}</span>
+              <a (click)="toTop()" [routerLink]="['/properties',property.id]">
+                <div class="visit">
+                  <fa-icon [icon]="['fas', 'calendar-days']" [class]="['fa-lg', 'icon']"></fa-icon>
+                  <span>View Details</span>
+                </div>
+              </a>
+            </div>
+          }
         </div>
       }
-    </div>
-  </div>
+      @placeholder(minimum 1s) {
+        <div class="infos-container">
+          <div class="box1"></div>
+          <div class="box2"></div>
+          <div class="box3"></div>
+        </div>
+      }
+      </div>
 
 </section>

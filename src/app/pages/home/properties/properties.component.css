@@ -25,3 +25,9 @@ section {
   font-size: 3.8rem;
   font-weight: 900;
 }
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

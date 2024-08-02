@@ -198,6 +198,50 @@ section {
   color: var(--white);
 }
 
+.box1{
+  display: flex;
+  width: 30rem;
+  height: 37rem;
+  max-width: 100%;
+  border-radius: 1rem;
+  background-color: #f1f2f4;
+  background: linear-gradient(100deg, #f1f2f4 30%, #e1e2e4 50%, #f1f2f4 70%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.box2 {
+  max-width: 100%;
+  width: 56rem;
+  height: 50rem;
+  border-radius: 1rem;
+  background: linear-gradient(100deg, #f1f2f4 30%, #e1e2e4 50%, #f1f2f4 70%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.box3 {
+  gap: 5rem;
+  width: 32rem;
+  max-width: 100%;
+  background-color: #f1f2f4;
+  border-radius: 1rem;
+  background: linear-gradient(100deg, #f1f2f4 30%, #e1e2e4 50%, #f1f2f4 70%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+
 @media (max-width: 1280px) {
   .infos .line .title {
     font-size: 1.3rem;
@@ -230,6 +274,9 @@ section {
 }
 
 @media (max-width:  768px) {
+  .box1 {
+    width: 100%;
+  }
   .infos-container {
     flex-direction: column;
     justify-content: center;

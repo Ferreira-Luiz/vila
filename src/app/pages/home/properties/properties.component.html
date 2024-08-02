@@ -1,9 +1,15 @@
-<section>
-  <div class="properties-container">
-    <div class="title-box">
-      <app-section-title style="color: var(--strong-pink);">Properties</app-section-title>
-      <span class="subTitle">We Provide The Best Property You Like</span>
+  <section>
+    <div class="properties-container">
+      <div class="title-box">
+        <app-section-title style="color: var(--strong-pink);">Properties</app-section-title>
+        <span class="subTitle">We Provide The Best Property You Like</span>
+      </div>
     </div>
-  </div>
-  <app-houses-list [showPagination]="false" [showFilter]="false"/>
-</section>
+    @defer (on viewport; on timer(10s)) {
+    <app-houses-list [showPagination]="false" [showFilter]="false"/>
+  } @placeholder {
+    <div class="placeholder">
+      <app-skeleton/>
+    </div>
+  }
+  </section>

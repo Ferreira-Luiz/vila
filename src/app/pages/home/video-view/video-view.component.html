@@ -1,8 +1,17 @@
 <section>
   <app-banner [bannerImage]="'../../../../assets/images/video-bg.jpg'" [bannerTitle]="'VIDEO VIEW'" [bannersubtitle]="'Get Closer View & Different Feeling'" />
-  <div class="video-box">
-    <iframe src="https://www.youtube.com/embed/DnPxdQNOURM?si=BnS-68gHuMbuHL6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
+  @defer (on interaction(playBTN)) {
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/DnPxdQNOURM?si=BnS-68gHuMbuHL6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  } @placeholder {
+    <div class="video-box">
+      <div class="placeholder">
+        <img #playBTN class="playBTN" src="../../../../assets/icons/playBTN.png" alt="play btn">
+        <img class="big-img" src="../../../../assets/images/video-frame.jpg" alt="video frame">
+      </div>
+    </div>
+  }
   <div class="box-section">
 
     <div class="box-info">

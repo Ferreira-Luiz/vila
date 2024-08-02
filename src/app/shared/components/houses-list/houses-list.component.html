@@ -9,50 +9,50 @@
             <button #penthouse (click)="byType('Penthouse')">Penthouse</button>
           </div>
         }
+      <div class="house-container">
         @if (isLoading) {
           <app-skeleton/>
         }
         @if (!isLoading) {
-          <div class="house-container">
             @if(!hasHouses) {
               <div class="error">
                 <span>No Houses Found</span>
                 <button>Show all</button>
               </div>
             }
-            @for (house of houses$ | async; track house.id) {
-              <div class="house-box">
-                <img [src]="house.image" alt="{{ house.title }}">
-                <div class="house-infos">
-                  <div class="info-top">
-                    <span class="type">{{ house.type }}</span>
-                    <span class="price">{{ house.price | money }}</span>
-                  </div>
-                  <span class="name">{{ house.title }}</span>
+              @for (house of houses$ | async; track house.id) {
+                <div class="house-box">
+                  <img [src]="house.image" alt="{{ house.title }}">
+                  <div class="house-infos">
+                    <div class="info-top">
+                      <span class="type">{{ house.type }}</span>
+                      <span class="price">{{ house.price | money }}</span>
+                    </div>
+                    <span class="name">{{ house.title }}</span>
 
-                  <div class="bot-info">
-                    <div class="line">
-                      <span>Bedrooms: <b>{{house.bedrooms}}</b></span>
-                      <span>Bathrooms: <b>{{house.bathrooms}}</b></span>
-                    </div>
-                    <div class="line">
-                      <span>Area: <b>{{house.area}}m2</b></span>
-                      <span>Floor: <b>{{house.floor}}</b></span>
-                      <span>Parking: <b>{{house.parkingSpots}} spots</b></span>
+                    <div class="bot-info">
+                      <div class="line">
+                        <span>Bedrooms: <b>{{house.bedrooms}}</b></span>
+                        <span>Bathrooms: <b>{{house.bathrooms}}</b></span>
+                      </div>
+                      <div class="line">
+                        <span>Area: <b>{{house.area}}m2</b></span>
+                        <span>Floor: <b>{{house.floor}}</b></span>
+                        <span>Parking: <b>{{house.parkingSpots}} spots</b></span>
+                      </div>
                     </div>
                   </div>
+                  <div class="details">
+                    <a [routerLink]="['/properties', house.id]">
+                      <span class="view-details">
+                        View Details
+                      </span>
+                    </a>
+                  </div>
                 </div>
-                <div class="details">
-                  <a [routerLink]="['/properties', house.id]">
-                    <span class="view-details">
-                      View Details
-                    </span>
-                  </a>
-                </div>
-              </div>
+              }
             }
           </div>
-        }
         </div>
         @if (showPagination) {
           <div class="pagination">
