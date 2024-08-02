@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
     apiKey: '${process.env.apiKey}',
-    authDomain: '${process.env.OTHER_authDomain}',
+    authDomain: '${process.env.authDomain}',
     projectId: '${process.env.projectId}',
     storageBucket: '${process.env.storageBucket}',
     messagingSenderId: '${process.env.messagingSenderId}',
