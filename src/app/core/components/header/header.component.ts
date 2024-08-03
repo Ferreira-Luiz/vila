@@ -19,7 +19,7 @@ export class HeaderComponent extends unsub implements OnInit {
   showSideBar: boolean = false;
   isMobile: boolean = false;
   isScrolled = false;
-  scrollLimit = 130;
+  scrollLimit = 152;
   @ViewChild('header') header!:ElementRef;
   @ViewChild('navigationHeader') navigationHeader!:ElementRef;
   @ViewChild('bg') bg!:ElementRef;
@@ -113,7 +113,6 @@ export class HeaderComponent extends unsub implements OnInit {
     this.closeBG = true;
     if(this.userLoggedIn) {
       this.loadUserProfile();
-      console.log('data')
     }
   }
 }
