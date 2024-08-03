@@ -216,11 +216,7 @@
     bottom: -1.5rem;
   }
 
-  .bot-info .line span {
-    font-size: 1.5rem;
-  }
-
-  .bot-info .line span b {
+  .bot-info .line span, .bot-info .line span b  {
     font-size: 1.5rem;
   }
 
@@ -240,7 +236,7 @@
   }
 
   .info-top .price {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .name {
@@ -248,11 +244,35 @@
   }
 }
 
-@media (max-width:  320px) {
+@media (max-width:  350px) {
   .info-top {
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
+  }
+
+  .bot-info .line span {
+    text-align: center;
+    width: 100%;
+  }
+
+  .name {
+    text-align: center;
+
+  }
+
+  .bot-info {
+    height: 100%;
+  }
+
+  .view-details {
+    font-size: 1.4rem;
+    width: 10rem;
+  }
+
+
+  .bot-info .line{
+    flex-wrap: wrap;
   }
 }
 
