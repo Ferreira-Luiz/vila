@@ -173,6 +173,12 @@ form input {
   color: red;
 }
 
+.errorConsole {
+  text-align: center;
+  font-size: 1.4rem;
+  color: red;
+}
+
 @media (max-width: 1012px) {
   .container {
     justify-content: center;

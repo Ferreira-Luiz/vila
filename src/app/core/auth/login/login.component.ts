@@ -21,6 +21,7 @@ export class LoginComponent extends unsub {
   passwordFieldType: string = 'password';
   openEyes = '../../../../assets/icons/visible.png'
   closedEyes = '../../../../assets/icons/eye.png'
+  errorMessage: string | null = null;
 
  constructor(private authService: AuthService, private router: Router) {
   super();
@@ -31,20 +32,29 @@ export class LoginComponent extends unsub {
     password: ['', [Validators.required]]
   })
 
-  onLogin() {
+  onLogin(): void {
     if (this.form.invalid) {
       return;
     }
-      const email = this.form.value.email;
-      const password = this.form.value.password;
 
-      if (email && password) {
-        this.authService.login(email, password)
+    const { email, password } = this.form.value;
+
+    if (email && password) {
+      this.authService.login(email, password)
         .pipe(takeUntil(this.unsub$))
-        .subscribe(() => {
-        this.router.navigate(['/userPage']);
+        .subscribe({
+          next: () => {
+            this.router.navigate(['/userPage']);
+          },
+          error: error => {
+            if (error.code === 'auth/invalid-credential') {
+              this.errorMessage = 'Check your credentials and try again.';
+            } else {
+              this.errorMessage = error.message;
+            }
+          }
         });
-      }
+    }
   }
 
   togglePasswordVisibility() {
@@ -52,8 +62,8 @@ export class LoginComponent extends unsub {
   }
 
   testeAcc() {
-    this.form.controls.email.patchValue('tt@email.com');
-    this.form.controls.password.patchValue('senha123');
+    this.form.controls.email.patchValue('contaparatestar@gmail.com');
+    this.form.controls.password.patchValue('senha12345');
   }
 
   navigateToRegister() {

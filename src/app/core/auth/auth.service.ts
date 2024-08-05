@@ -20,8 +20,8 @@ export class AuthService {
   login(email: string, password: string) {
     return from(this.afAuth.signInWithEmailAndPassword(email, password)).pipe(
       catchError(err => {
-        console.error('Erro ao fazer login:', err);
-        return of({ error: err });
+        console.error('Erro ao fazer login');
+        throw err;
       })
     );
   }
@@ -31,11 +31,7 @@ export class AuthService {
       switchMap(({ user }) => {
         if (user) {
           return from(user.updateProfile({ displayName, photoURL })).pipe(
-            map(() => user),
-            catchError(err => {
-              console.error('Erro ao atualizar perfil:', err);
-              return of({ error: err });
-            })
+            map(() => user)
           );
         } else {
           throw new Error('Erro ao criar usuário');
@@ -43,17 +39,16 @@ export class AuthService {
       }),
       catchError(err => {
         console.error('Erro ao registrar usuário:', err);
-        return of({ error: err });
+        throw err;
       })
     );
   }
-
 
   logout() {
     return from(this.afAuth.signOut()).pipe(
       catchError(err => {
         console.error('Erro ao fazer logout:', err);
-        return of({ error: err });
+        throw err;
       })
     );
   }

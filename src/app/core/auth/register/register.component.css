@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 10rem 0;
   width: 100%;
 }
 
@@ -69,7 +69,6 @@
   color: var(--black-text);
 }
 
-
 form  {
   display: flex;
   flex-direction: column;
@@ -80,7 +79,7 @@ form  {
 form input {
   color: var(--black-text);
   height: 5.2rem;
-  width: 36.4rem;
+  width: 40rem;
   max-width: 100%;
   border-radius: 1.6rem;
   background-color: #F0EDFF;
@@ -159,10 +158,51 @@ form input {
   font-weight: 900;
 }
 
-.error {
-  font-weight: 700;
+.errorsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   font-size: 1.4rem;
+  font-weight:700;
+}
+
+.errorsBox span {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.errorsBox img {
+  width: 1.5rem;
+}
+
+.error {
+  color: var(--gray);
+  font-size: 1.4rem;
+}
+
+.success {
+  color: green;
+  font-size: 1.4rem;
+}
+
+.photoBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.photoBox span {
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 1.2rem;
+}
+
+.consoleError {
+  text-align: center;
   color: red;
+  font-size: 1.4rem;
 }
 
 @media (max-width: 544px) {
@@ -171,6 +211,10 @@ form input {
   }
   form input, form, .password-container, .text-with-lines, .socialLoginBox{
     width: 100%;
+  }
+
+  .errorsBox {
+   width: 100%;
   }
 
   .text-with-lines {

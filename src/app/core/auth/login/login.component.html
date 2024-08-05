@@ -22,6 +22,11 @@
               </div>
 
               <button class="btn" type="submit">Login Now</button>
+              <div class="errorConsole">
+                @if (errorMessage) {
+                  <p>{{ errorMessage }}</p>
+                }
+              </div>
         </form>
           <span class="text-with-lines"><b>Login</b> with Others</span>
           <div class="socialLoginBox">

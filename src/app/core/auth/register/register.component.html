@@ -5,16 +5,62 @@
           <h4>Register</h4>
           <span>You're one step away from the home of your dreams.</span>
         </div>
+        <div class="errorsBox">
+          <span [ngClass]="{ 'error': isFieldInvalid('email'), 'success': isFieldValid('email') }">
+            @if (isFieldInvalid('email')) {
+              <img src="../../../../assets/icons/error-svgrepo-com.svg" alt="error icon">
+            }
+            @if (isFieldValid('email')) {
+              <img src="../../../../assets/icons/correct-signal-svgrepo-com.svg" alt="correct icon">
+            }
+            The email must have &#64; simbol
+        </span>
+
+        <span [ngClass]="{ 'error': isFieldInvalid('password'), 'success': isFieldValid('password') }">
+          @if (isFieldInvalid('password')) {
+            <img src="../../../../assets/icons/error-svgrepo-com.svg" alt="error icon">
+          }
+          @if (isFieldValid('password')) {
+            <img src="../../../../assets/icons/correct-signal-svgrepo-com.svg" alt="correct icon">
+          }
+          The password must contain at least 6 characters
+        </span>
+
+        @if (this.registerForm.get("password")?.valid) {
+          <span [ngClass]="{ 'error': isFieldInvalid('confirmPassword'), 'success': isFieldValid('confirmPassword') }">
+            @if (isFieldInvalid('confirmPassword')) {
+              <img src="../../../../assets/icons/error-svgrepo-com.svg" alt="error icon">
+            }
+            @if (isFieldValid('confirmPassword')) {
+              <img src="../../../../assets/icons/correct-signal-svgrepo-com.svg" alt="correct icon">
+            }
+            The password must be the same
+          </span>
+        }
+
+        <span [ngClass]="{ 'error': isFieldInvalid('displayName'), 'success': isFieldValid('displayName') }">
+          @if (isFieldInvalid('displayName')) {
+            <img src="../../../../assets/icons/error-svgrepo-com.svg" alt="error icon">
+          }
+          @if (isFieldValid('displayName')) {
+            <img src="../../../../assets/icons/correct-signal-svgrepo-com.svg" alt="correct icon">
+          }
+          The display name must have a maximum of 10 characters
+        </span>
+
+        <span [ngClass]="{ 'error': isFieldInvalid('photoURL'), 'success': isFieldValid('photoURL') }">
+          @if (isFieldInvalid('photoURL')) {
+            <img src="../../../../assets/icons/error-svgrepo-com.svg" alt="error icon">
+          }
+          @if (isFieldValid('photoURL')) {
+            <img src="../../../../assets/icons/correct-signal-svgrepo-com.svg" alt="correct icon">
+          }
+          The url must end with an image extension (jpeg, png...)
+        </span>
+
+        </div>
         <form [formGroup]="registerForm">
-
-          @if(this.hasError && this.registerForm.get('email')?.invalid) {
-            <span class="error">This field is required</span>
-          }
           <input class="user-input-placeholder" id="email" formControlName="email" type="email" placeholder="Email">
-
-          @if( this.hasError && this.registerForm.get('password')?.invalid) {
-            <span class="error">min lenght is 6</span>
-          }
 
           <div class="password-container">
             <input [type]="passwordFieldType" class="password-input-placeholder" formControlName="password" type="password" placeholder="Password">
@@ -23,9 +69,6 @@
             </button>
           </div>
 
-          @if (this.hasError ) {
-            <span class="error">Password doesn't match</span>
-          }
           <div class="password-container">
             <input [type]="ConfirmpasswordFieldType" class="password-input-placeholder" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
             <button type="button" (click)="toggleConfirmPasswordVisibility()">
@@ -33,18 +76,19 @@
             </button>
           </div>
 
-          @if( this.hasError && this.registerForm.get('displayName')?.invalid) {
-            <span class="error">max lenght is 10</span>
-          }
           <input class="user-input-placeholder" id="displayName" formControlName="displayName" type="text" placeholder="Display Name">
 
-          @if( this.hasError && this.registerForm.get('photoURL')?.invalid) {
-            <span class="error">url must end with an image extension</span>
-          }
-          <input class="picture-input-placeholder " id="photoURL" formControlName="photoURL" type="text" placeholder="Photo URL">
+          <div class="photoBox">
+            <span (click)="setTestIMG()">use uma imagem para testar. CLIQUE AQUI!</span>
+            <input class="picture-input-placeholder " id="photoURL" formControlName="photoURL" type="text" placeholder="Photo URL">
+          </div>
 
-          <button  (click)="onRegister()" class="sbtBTN" type="submit">Register</button>
-
+          <button (click)="onRegister()" class="sbtBTN" type="submit">Register</button>
+          <div class="consoleError">
+            @if (errorMessage) {
+              <p>{{ errorMessage }}</p>
+            }
+          </div>
         </form>
           <span class="text-with-lines"><b>Forgot</b> your credentials?</span>
           <div class="socialLoginBox">

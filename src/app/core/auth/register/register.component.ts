@@ -1,34 +1,29 @@
 import { Component, inject } from '@angular/core';
-import {  AbstractControl, FormBuilder, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {  AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { unsub } from '../../../shared/utils/unsub';
 import { takeUntil } from 'rxjs';
 import { ImageURLRegexValidator } from '../../../shared/utils/imageURLvalidator';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 
 export class RegisterComponent extends unsub {
   registerForm: FormGroup;
-  hasError: boolean = false;
   passwordFieldType: string = 'password';
-  ConfirmpasswordFieldType: string = 'password';
-  openEyes = '../../../../assets/icons/visible.png'
-  closedEyes = '../../../../assets/icons/eye.png'
-  passwordmatcherror: boolean = false
-
-  private matchpassword: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
-    return password && confirmPassword && password.value !== confirmPassword.value ? { passwordmatcherror: true } : null;
-  }
+  ConfirmpasswordFieldType: string = 'password';;
+  openEyes = '../../../../assets/icons/visible.png';
+  closedEyes = '../../../../assets/icons/eye.png';
+  passwordmatcherror: boolean = false;
+   errorMessage: string | null = null;
 
 
   constructor(private router: Router, private authService : AuthService, private formBuilder: FormBuilder) {
@@ -40,14 +35,44 @@ export class RegisterComponent extends unsub {
       displayName: ['', [Validators.required, Validators.maxLength(10)]],
       photoURL: ['', [Validators.required, Validators.pattern(ImageURLRegexValidator)]]
     }, {
-      validator: this.matchpassword
+      validator: this.matchPasswordValidator()
     });
+  }
 
+  matchPasswordValidator(): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const password = formGroup.get('password');
+      const confirmPassword = formGroup.get('confirmPassword');
+      if (!password || !confirmPassword) {
+        return null;
+      }
+      const mismatch = password.value !== confirmPassword.value;
+      if (mismatch) {
+        confirmPassword.setErrors({ passwordMismatch: true });
+      } else {
+        confirmPassword.setErrors(null);
+      }
+      return mismatch ? { passwordMismatch: true } : null;
+    };
+  }
+
+  get confirmPasswordError(): boolean {
+    const confirmPasswordControl = this.registerForm.get('confirmPassword');
+    return (confirmPasswordControl?.hasError('passwordMismatch') ?? false) && (confirmPasswordControl?.touched ?? false);
+  }
+
+  isFieldInvalid(field: string): boolean {
+    const control = this.registerForm.get(field);
+    return (control?.invalid && (control.dirty || control.touched)) ?? false;
+  }
+
+  isFieldValid(field: string): boolean {
+    const control = this.registerForm.get(field);
+    return (control?.valid && (control.dirty || control.touched)) ?? false;
   }
 
   onRegister(): void {
     if (this.registerForm.invalid) {
-      this.hasError = true;
       return;
     }
 
@@ -55,11 +80,19 @@ export class RegisterComponent extends unsub {
 
     if (email && password && displayName && photoURL) {
       this.authService.register(email, password, displayName, photoURL)
-      .pipe(takeUntil(this.unsub$))
-      .subscribe(() => {
-        this.router.navigate(['/userPage']);
-        }
-      );
+        .pipe(takeUntil(this.unsub$))
+        .subscribe({
+          next: () => {
+            this.router.navigate(['/userPage']);
+          },
+          error: error => {
+            if (error.code === 'auth/email-already-in-use') {
+              this.errorMessage = 'The email address is already in use by another account.';
+            } else {
+              this.errorMessage = error.message;
+            }
+          }
+      });
     }
   }
 
@@ -75,4 +108,7 @@ export class RegisterComponent extends unsub {
     this.router.navigate(['/login']);
   }
 
+  setTestIMG() {
+    this.registerForm.get('photoURL')?.setValue('https://cdn-icons-png.flaticon.com/512/1149/1149391.png');
+  }
 }

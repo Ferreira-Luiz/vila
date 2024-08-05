@@ -1,1 +1,1 @@
-export const ImageURLRegexValidator = /^(http(s)?:\/\/).+(\.(jpg|jpeg|png|gif|bmp|webp))$/i;
+export const ImageURLRegexValidator = /.+\.(jpg|jpeg|png|bmp|webp)$/i;
