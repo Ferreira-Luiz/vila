@@ -189,14 +189,34 @@ section {
 }
 
 @media (max-width: 544px) {
- .big-img {
-  width: 100%;
-  object-fit: cover;
- }
+  .big-img {
+    width: 100%;
+    object-fit: cover;
+  }
 
- .icon-image {
-  display: none;
+  .icon-image {
+    display: none;
+  }
 }
+
+@media (max-width: 320px) {
+  section {
+    margin: 5rem 2rem;
+  }
+  .big-img {
+    width: 20rem;
+  }
+
+  .text-title-group h1{
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .text-box {
+    justify-content: center;
+    gap: 4rem;
+  }
 }
+
 
 

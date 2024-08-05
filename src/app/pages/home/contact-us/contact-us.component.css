@@ -23,7 +23,7 @@
 
 .map-box .cards {
   display: flex;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 
@@ -45,12 +45,20 @@
     justify-content: center;
     gap: 5rem;
   }
+
+  ::ng-deep .form-box {
+    width: 100% !important;
+  }
 }
 
 @media (max-width:  768px) {
   .map-box .cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  ::ng-deep .cards .card {
+    width: 100% !important;
   }
 }
 
@@ -59,6 +67,21 @@
     text-align: center;
     width: 100%;
   }
+
+  ::ng-deep .cards .card {
+    align-items: center;
+    gap: .2rem;
+    padding: 1rem !important;
+  }
+
+  ::ng-deep .cards .card .card-title{
+    font-size: 1.6rem !important;
+  }
+
+  ::ng-deep .cards .card .card-subtitle{
+    font-size: 1.4rem !important;
+  }
 }
+
 
 
