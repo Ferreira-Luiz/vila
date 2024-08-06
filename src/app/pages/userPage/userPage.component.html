@@ -166,7 +166,14 @@
         </div>
       </div>
 
-      <span class="expandHouses" (click)="toogleShowHouses()">{{ showHouses ? 'Hide my properties' : 'Show my properties'}}</span>
+      @if (this.houses.length > 0) {
+        <span class="expandHouses" (click)="toogleShowHouses()">you published {{this.houses.length}} houses do you want to {{ showHouses ? 'hide your houses' : 'show your houses'}}?</span>
+      }
+
+      @if (this.houses.length == 0) {
+        <span class="noHousesMsg">you haven't published any houses yet</span>
+      }
+
       @if (showHouses && this.houses.length > 0) {
           <div class="userHouse">
             <ul>

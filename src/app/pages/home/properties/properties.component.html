@@ -5,11 +5,12 @@
         <span class="subTitle">We Provide The Best Property You Like</span>
       </div>
     </div>
-    @defer (on viewport; on timer(10s)) {
+  </section>
+
+  @defer (on viewport; on timer(10s)) {
     <app-houses-list [showPagination]="false" [showFilter]="false"/>
   } @placeholder {
     <div class="placeholder">
       <app-skeleton/>
     </div>
   }
-  </section>

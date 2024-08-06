@@ -100,7 +100,7 @@ export class userPage extends unsub implements OnInit {
       this.crudHouseService.updateProperty(this.editingPropertyId, house as PropertiesData)
       .pipe(takeUntil(this.unsub$))
       .subscribe(() => {
-        console.log('House updated successfully');
+        this.houseForm.reset();
         this.editMode = false;
         this.editingPropertyId = null;
         this.loadUserProperties();
@@ -118,7 +118,6 @@ export class userPage extends unsub implements OnInit {
     this.crudHouseService.deleteProperty(id)
     .pipe(takeUntil(this.unsub$))
     .subscribe(() => {
-      console.log('House deleted successfully');
       this.loadUserProperties();
     });
   }

@@ -200,6 +200,7 @@ form .details {
 }
 
 .house {
+  overflow: hidden;
   display: flex;
   gap: 2rem;
   flex-direction: column;
@@ -252,8 +253,10 @@ form .details {
 }
 
  .DetailsHouseTitle {
+  text-align: center;
+  max-height: 4.5rem;
+  max-width: 20rem;
   font-weight: 800;
-  width: 100%;
   overflow: hidden;
 }
 
@@ -261,6 +264,13 @@ form .details {
   display: flex;
   align-items: center;
   gap: .5rem;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.detailsOfHouse .item b {
+  font-weight: 900;
+  color: var(--black-text);
 }
 
 .buttons-section {
@@ -295,7 +305,15 @@ form .details {
   cursor: pointer;
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--black-text);
+  color: green;
+  opacity: 0.4;
+}
+
+.noHousesMsg {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: red;
   opacity: 0.4;
 }
 
@@ -357,4 +375,34 @@ form .details {
     width: 100%;
   }
 
+  .house {
+    padding: 2rem 1rem;
+  }
+
+  .detailsOfHouse {
+   gap: 2rem;
+  }
+
+  .detailsOfHouse .item {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .buttons-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .btn-icon {
+    width: 10rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 10rem .5rem;
+  }
 }
