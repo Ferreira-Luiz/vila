@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
+import { SectionTitleComponent } from '../../../shared/ui_elements/section-title/section-title.component';
 
 @Component({
   selector: 'app-featured',

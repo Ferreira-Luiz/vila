@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
+import { PageBannerComponent } from '../../shared/ui_elements/page-banner/page-banner.component';
 import { HousesListComponent } from '../../shared/components/houses-list/houses-list.component';
 
 @Component({

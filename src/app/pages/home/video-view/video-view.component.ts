@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { IconsModule } from '../../../icons/icons.module';
-import { BannerComponent } from '../../../shared/components/banner/banner.component';
+import { BannerComponent } from '../../../shared/ui_elements/banner/banner.component';
 
 @Component({
   selector: 'app-video-view',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BannerComponent } from '../../../shared/components/banner/banner.component';
+import { BannerComponent } from '../../../shared/ui_elements/banner/banner.component';
 import { FormComponent } from '../../../shared/components/form/form.component';
 import { CardContactsComponent } from '../../../shared/ui_elements/card-contacts/card-contacts.component';
 

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CrudHouseService } from '../../core/service/crudHouse.service';
-import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
+import { PageBannerComponent } from '../../shared/ui_elements/page-banner/page-banner.component';
 
 @Component({
   selector: 'app-properties-details',

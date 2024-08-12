@@ -5,7 +5,7 @@ import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 
 import { IconsModule } from '../../../icons/icons.module';
 import { PropertiesData } from '../../../shared/models/interfaces/propertiesType';
-import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
+import { SectionTitleComponent } from '../../../shared/ui_elements/section-title/section-title.component';
 import { CrudHouseService } from './../../../core/service/crudHouse.service';
 
 

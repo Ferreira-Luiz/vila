@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
-import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
+import { PageBannerComponent } from '../../shared/ui_elements/page-banner/page-banner.component';
+import { SectionTitleComponent } from '../../shared/ui_elements/section-title/section-title.component';
 import { FormComponent } from '../../shared/components/form/form.component';
 import { CardContactsComponent } from '../../shared/ui_elements/card-contacts/card-contacts.component';
 
