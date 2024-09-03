@@ -22,7 +22,7 @@ import { RestoreScrollingDirective } from '../../directives/restoreScrolling.dir
 export class HousesListComponent extends unsub implements OnInit {
   houses$!: Observable<PropertiesData[] | []>;
   page: number = 1;
-  limit: number = 8;
+  limit: number = 6;
   totalPages!: number ;
   isLoading: boolean = false;
   hasHouses: boolean = false;
