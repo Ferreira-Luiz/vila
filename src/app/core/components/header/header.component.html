@@ -14,22 +14,22 @@
     <div class="box-2">
       <div class="social-icons">
         <div class="social-box">
-          <a href="#">
+          <a [routerLink]="['/Home']">
             <fa-icon [icon]="['fab', 'facebook']" [class]="['fa-sm', 'icon']"></fa-icon>
           </a>
         </div>
         <div class="social-box">
-          <a href="#">
+          <a [routerLink]="['/Home']">
             <fa-icon [icon]="['fab', 'twitter']" [class]="['fa-sm', 'icon']"></fa-icon>
           </a>
         </div>
         <div class="social-box">
-          <a href="#">
+          <a [routerLink]="['/Home']">
             <fa-icon [icon]="['fab', 'linkedin']" [class]="['fa-sm', 'icon']"></fa-icon>
           </a>
         </div>
         <div class="social-box">
-          <a href="#">
+          <a [routerLink]="['/Home']">
             <fa-icon [icon]="['fab', 'instagram']" [class]="['fa-sm', 'icon']"></fa-icon>
           </a>
         </div>
@@ -49,7 +49,7 @@
 </button>
 
 <div class="logo-box">
-  <a href="/home">
+  <a [routerLink]="['/Home']">
     <span>VILLA</span>
   </a>
 </div>
@@ -62,9 +62,9 @@
     d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
   </svg>
 </button>
-<a class="link" href="/house">Home</a>
-<a class="link" href="/properties">Properties</a>
-<a class="link" href="/contactUs">Contact us</a>
+<a class="link" [routerLink]="['/Home']">Home</a>
+<a class="link" [routerLink]="['/properties']">properties</a>
+<a class="link" [routerLink]="['/contactUs']">contact us</a>
 
   <img class="iconUser" (click)="openUserBox() " src="../../../../assets/icons/user.png" alt="icon">
   @if (this.showUserData) {
@@ -72,8 +72,8 @@
 
       @if (!userLoggedIn) {
         <div class="login">
-          <a class="logout" href="/login">Login</a>
-          <a class="logout" href="/register">Create your account</a>
+          <a class="logout" [routerLink]="['/login']">Login</a>
+          <a class="logout" [routerLink]="['/register']">Create your account</a>
         </div>
       }
 
@@ -82,7 +82,7 @@
         <span class="nameUser">{{displayName}}</span>
         <span class="emailUser">{{email}}</span>
         <div class="userBTN">
-          <a class="logout" href="/userPage">
+          <a class="logout" [routerLink]="['/userPage']">
             <span>User Page</span>
           </a>
           <span class="logout" (click)="logout()">Logout</span>

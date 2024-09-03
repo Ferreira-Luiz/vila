@@ -6,8 +6,6 @@ O **Vila** é um projeto de estudo desenvolvido para simular um site imobiliári
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Funcionalidades](#funcionalidades)
-- [Testar](#testar)
-- [Contribuição](#contribuição)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 
 ## Tecnologias Utilizadas
@@ -35,27 +33,7 @@ O **Vila** é um projeto de estudo desenvolvido para simular um site imobiliári
 - UI responsiva e estilizada.
 - Navegação entre paginas feita visando uma melhor UX
 - skeleton loading para uma melhor experiencia
-
-
-## Testar 
-
-Para testar localmente, siga estas etapas:
-
-1. Clone o repositório:
-
-   ```bash
-    https://github.com/Ferreira-Luiz/vila.git
-    ```
-2. Inicie o projeto
-
-   ```bash
-    cd vila
-    npm install
-    npm start
-    ```
-
-## Contribuição
-- Se você gostaria de contribuir com o projeto, **siga este [Passo a Passo](docs/Contributing.md)**
+- Single Page Application
 
 ## Estrutura do Projeto
 - Para se localizar no projeto de uma olhada em como esta a **[Estruturação das pastas](docs/Structure.md)**

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { map, Observable, takeUntil } from 'rxjs';
 
@@ -9,11 +9,12 @@ import { PropertiesData } from '../../models/interfaces/propertiesType';
 import { moneyPipe } from '../../pipes/money.pipe';
 import { SkeletonComponent } from '../../utils/skeleton/skeleton.component';
 import { unsub } from '../../utils/unsub';
+import { RestoreScrollingDirective } from '../../directives/restoreScrolling.directive';
 
 @Component({
   selector: 'app-houses-list',
   standalone: true,
-  imports: [moneyPipe, CommonModule, SkeletonComponent, RouterModule],
+  imports: [moneyPipe, CommonModule, SkeletonComponent, RouterModule, RestoreScrollingDirective],
   templateUrl: './houses-list.component.html',
   styleUrl: './houses-list.component.css',
 })
@@ -21,7 +22,7 @@ import { unsub } from '../../utils/unsub';
 export class HousesListComponent extends unsub implements OnInit {
   houses$!: Observable<PropertiesData[] | []>;
   page: number = 1;
-  limit: number = 6;
+  limit: number = 8;
   totalPages!: number ;
   isLoading: boolean = false;
   hasHouses: boolean = false;

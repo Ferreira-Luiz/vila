@@ -5,13 +5,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map, take, takeUntil } from 'rxjs';
 import { unsub } from '../../../shared/utils/unsub';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IconsModule, CommonModule],
+  imports: [IconsModule, CommonModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

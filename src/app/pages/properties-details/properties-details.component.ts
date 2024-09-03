@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CrudHouseService } from '../../core/service/crudHouse.service';
@@ -9,7 +9,7 @@ import { PageBannerComponent } from '../../shared/ui_elements/page-banner/page-b
 @Component({
   selector: 'app-properties-details',
   standalone: true,
-  imports: [CommonModule, PageBannerComponent],
+  imports: [CommonModule, PageBannerComponent, RouterModule],
   templateUrl: './properties-details.component.html',
   styleUrls: ['./properties-details.component.css']
 })

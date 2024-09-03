@@ -21,7 +21,7 @@
               </div>
             }
               @for (house of houses$ | async; track house.id) {
-                <div class="house-box">
+                <div restoreScrolling class="house-box">
                   <img [src]="house.image" alt="{{ house.title }}">
                   <div class="house-infos">
                     <div class="info-top">
